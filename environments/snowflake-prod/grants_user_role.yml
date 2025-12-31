@@ -1,0 +1,411 @@
+grants_user_role:
+
+### add new users here - one role per user
+  -
+    role: BI_ADHOC # PO Team
+    users:
+      - PHILIPP.STAUDHAMMER@NEW-WORK.SE
+      - AMIT.PAREKH@NEW-WORK.SE
+      - RICO.STASS@NEW-WORK.SE
+      - BENJAMIN.CONSTANTINE@NEW-WORK.SE
+  -
+    role: BI_DBT # Reporting Team
+    users:
+      - ERDINC.ULUTURK@NEW-WORK.SE
+      - MIKHAIL.ZHADANOV@NEW-WORK.SE
+      - STEFANIA.DUMA@NEW-WORK.SE
+      - PRIYANKA.BHARTI@NEW-WORK.SE
+      - MUKUNDA.RAMANNA@NEW-WORK.SE
+
+  -
+    role: BI_FULL # Data Engineering Team
+    users:
+      - MOHAMMED.ALHAKEEM@NEW-WORK.SE
+      - MATIJA.MILKOVIC@NEW-WORK.SE
+      - MIKHAIL.ZHADANOV@NEW-WORK.SE
+      - ECE.OEZDEMIR@NEW-WORK.SE
+      - MEHDI.LASHGARI@NEW-WORK.SE
+      - PRIYANKA.BHARTI@NEW-WORK.SE
+      - ERDINC.ULUTURK@NEW-WORK.SE
+      - CARLOS.HELLER@NEW-WORK.SE
+      - JAN.ELMISZ@NEW-WORK.SE
+      - MUKUNDA.RAMANNA@NEW-WORK.SE
+  -
+    role: BU_XING_ADHOC # xing data viewers and analysts
+    users:
+      - ROBERT.JUERGENS@NEW-WORK.SE
+      - RUBEN.ABAD@NEW-WORK.SE
+      - PHILLIP.LASSEN@EXT.NEW-WORK.SE
+      - SVEN.SORGENFREY@XING.COM
+      - SEBASTIAN.GERMESIN@XING.COM
+      - PHILIPP.WUELFING@XING.COM
+      - ERIK.BRUEGGEMANN@NEW-WORK.SE
+      - SILKE.VOIGTS@XING.COM
+      - JENS.WALTHER@XING.COM
+      - SYEDMUSTAFA.QUADRI@NEW-WORK.SE
+  -
+    role: BU_XING_DBT # xing dbt users
+    users:
+      - JAN.ROSE@XING.COM
+      - HECTOR.RAMIREZ@XING.COM
+      - FLORIAN.WENCK@XING.COM
+      - LJEWIN.SCHEIKO@XING.COM
+      - DAVID.WOJAHN@XING.COM
+      - MARIO.CASARANO@XING.COM
+      - VIDWATH.RAJ@XING.COM
+      - MOJTABA.KARBALAEI@NEW-WORK.SE
+      - NEERAJ.KUMAR@NEW-WORK.SE
+      - TIKHON.ANTYSHEV@XING.COM
+      - GONZALO.CANDEL@XING.COM
+      - SUHAS.KAMUNI@XING.COM
+      - JULIA.STOECKLEIN@XING.COM
+      - HASSAN.SALAHUDDIN@XING.COM
+      - AMIR.NAZARY@NEW-WORK.SE
+      - SYEDMUSTAFA.QUADRI@NEW-WORK.SE
+  -
+    role: DIS_DBT # dis dbt users
+    users:
+      - RUBEN.GONZALEZ@NEW-WORK.SE
+      - MOSTAFA.SADEGHI@NEW-WORK.SE
+      - MIGUEL.LOBATO@NEW-WORK.SE
+      - BLAI.VERGE@NEW-WORK.SE
+      - DARIA.PADO@NEW-WORK.SE
+      - JOSEMIGUEL.TEBAR@NEW-WORK.SE
+      - AMIR.NAZARY@NEW-WORK.SE
+  -
+    role: BU_ONLYFY_ADHOC # onlyfy data viewers and analysts
+    users:
+      - THANH.TRONGVO@XING.COM
+  -
+    role: BU_ONLYFY_DBT # onlyfy dbt users
+    users:
+      - HEIKO.MUNDT@NEW-WORK.SE
+      - MARIO.IULIANO@XING.COM
+      - KAROLINA.BERNATOVA@XING.COM
+      - ANDRA.PLUECKTHUN@XING.COM
+      - JULIA.STOECKLEIN@XING.COM
+      - PAUL.NORFOLK@KUNUNU.COM
+      - JULIANE.WEIMANN@NEW-WORK.SE
+      - THANH.TRONGVO@XING.COM
+      - MARKO.DRAGICEVIC@KUNUNU.COM
+      - ALINA.MOSOLOVA@KUNUNU.COM
+      - DIANA.PLATARRUEDA@KUNUNU.COM
+      - ALICJA.JAHN@NEW-WORK.SE
+      - VAISHNAVI.KANTU@XING.COM
+      - SYEDMUSTAFA.QUADRI@NEW-WORK.SE
+      - ARITRA.PAUL@NEW-WORK.SE
+
+  -
+    role: BU_XMS_ADHOC # xms data viewers and analysts
+    users:
+      - ANTON.ZGURSKIY@XING.COM
+  -
+    role: BU_XMS_DBT # xms dbt users
+    users:
+      - KRISTIAN.KOUROS@XING.COM
+  -
+    role: BU_HONEYPOT_ADHOC # honeypot data viewers and analysts
+    users:
+      - HONEYPOT_USER
+
+  -
+    role: BU_KUNUNU_ADHOC # kununu data viewers and analysts
+    users:
+      - ALINA.MOSOLOVA@KUNUNU.COM
+
+### technical roles - only technical users or bi developers
+
+  -
+    role: BI_READER
+    users:
+      - TABLEAU_BI_USER
+  -
+    role: BI_REPORTING_POC
+    users:
+      - REPORTING_POC
+      - MIKHAIL.ZHADANOV@NEW-WORK.SE
+  -
+    role: BI_READER_TEST #  To delete after 01.02.2025. This role is used for testing of Tableau issue with temp tables.
+    users:
+      - TABLEAU_BI_USER
+      - MIKHAIL.ZHADANOV@NEW-WORK.SE
+      
+  -
+    role: BI_TABLEAU_IMPORTER
+    users:
+      - TABLEAU_BI_IMPORT_USER
+
+  -
+    role: BU_XING_READER
+    users:
+      - TABLEAU_XING_USER
+      - JAN.ROSE@XING.COM
+      - HECTOR.RAMIREZ@XING.COM
+      - FLORIAN.WENCK@XING.COM
+      - LJEWIN.SCHEIKO@XING.COM
+      - DAVID.WOJAHN@XING.COM
+      - MARIO.CASARANO@XING.COM
+      - VIDWATH.RAJ@XING.COM
+      - MOJTABA.KARBALAEI@NEW-WORK.SE
+      - GONZALO.CANDEL@XING.COM
+      - SUHAS.KAMUNI@XING.COM
+      - JULIA.STOECKLEIN@XING.COM
+      - VAISHNAVI.KANTU@XING.COM
+      - SYEDMUSTAFA.QUADRI@NEW-WORK.SE
+      - MARTA.RUIZ@XING.COM
+      - SAIMON.MOORE@XING.COM
+  -
+    role: BU_ONLYFY_READER
+    users:
+      - TABLEAU_ONLYFY_USER
+      - HEIKO.MUNDT@NEW-WORK.SE
+      - MARIO.IULIANO@XING.COM
+      - KAROLINA.BERNATOVA@XING.COM
+      - VAISHNAVI.KANTU@XING.COM
+  -
+    role: BU_XMS_READER
+    users:
+      - TABLEAU_BI_USER
+      - TABLEAU_XMS_USER
+      - KRISTIAN.KOUROS@XING.COM
+  -
+    role: RAW_LOADER
+    users:
+      - APPFLOW_USER
+      - SNOWPIPE_USER
+      # data engineers for development purposes
+      - MOHAMMED.ALHAKEEM@NEW-WORK.SE
+      - MATIJA.MILKOVIC@NEW-WORK.SE
+      - MEHDI.LASHGARI@NEW-WORK.SE
+      - PRIYANKA.BHARTI@NEW-WORK.SE
+      - ECE.OEZDEMIR@NEW-WORK.SE
+      - MUKUNDA.RAMANNA@NEW-WORK.SE      
+  -
+    role: DBT_PIPELINE
+    users:
+      - AIRFLOW_USER
+      - DBT_USER
+      - GITHUB_USER
+      - ASTRO_USER
+      # data engineers for development purposes
+      - MOHAMMED.ALHAKEEM@NEW-WORK.SE
+      - MATIJA.MILKOVIC@NEW-WORK.SE
+      - MEHDI.LASHGARI@NEW-WORK.SE
+      - PRIYANKA.BHARTI@NEW-WORK.SE
+      - ECE.OEZDEMIR@NEW-WORK.SE
+      - MIKHAIL.ZHADANOV@NEW-WORK.SE
+      - ERDINC.ULUTURK@NEW-WORK.SE
+      - STEFANIA.DUMA@NEW-WORK.SE
+      - CARLOS.HELLER@NEW-WORK.SE
+      - JAN.ELMISZ@NEW-WORK.SE
+      - MUKUNDA.RAMANNA@NEW-WORK.SE
+  -
+    role: GITHUB_PIPELINE # all github actions
+    users:
+      - GITHUB_USER
+  -
+    role: BU_ONLYFY_IMPORTER # onlyfy python scripts
+    users:
+      - ONLYFY_IMPORT_USER
+      - MARIO.IULIANO@XING.COM # temp access for development
+  -
+    role: BU_XMS_IMPORTER # xms scripts
+    users:
+      - XMS_IMPORT_USER
+      - KRISTIAN.KOUROS@XING.COM
+  -
+    role: BU_XING_IMPORTER # xing scripts
+    users:
+      - XING_IMPORT_USER
+      - TIKHON.ANTYSHEV@XING.COM
+  -
+    role: GOVERNANCE_PII_VIEWER
+    users:
+      - MOHAMMED.ALHAKEEM@NEW-WORK.SE
+  -
+    role: BI_READER_ACCOUNTING
+    users:
+      - TABLEAU_BI_ACCOUNTING_USER
+  -
+    role: BI_READER_CONTROLLING
+    users:
+      - AMIT.PAREKH@NEW-WORK.SE
+  -
+    role: BI_READER_FINANCE
+    users:
+      - TABLEAU_BI_FINANCE_USER
+      - ALENA.BENTHACK@NEW-WORK.SE
+      - AMREI.SCHRAUT@NEW-WORK.SE
+  -
+    role: BU_PB_READER
+    users:
+      - TABLEAU_PB_USER
+      - PETER.JOHANSSON@NEW-WORK.SE
+      - SEBASTIAN.JARNOT@NEW-WORK.SE
+  -
+    role: BU_BSTEERING_READER
+    users:
+      - TABLEAU_BSTEERING_USER
+      - VANESSA.PAULAT@XING.COM
+  -
+    role: BU_KUNUNU_READER
+    users:
+      - TABLEAU_KUNUNU_USER
+  -
+    role: BU_NWSE_ADHOC
+    users:
+      - NEW_WORK_SE_USER
+      - NEW_WORK_SE_USER_TEST_MOH
+      - NEW_WORK_SE_USER_TEST_ML      
+      - HENDRIK.SPIEGEL@NEW-WORK.SE
+  -
+    role: HUMAN_RESOURCES_READER
+    users: 
+      - TABLEAU_BI_HUMAN_RESOURCES_USER
+      - AMIT.PAREKH@NEW-WORK.SE
+  -
+    role: BI_DIS_PII_VIEWER # a common role between BI & DIS snowflake accounts to view PII data on DIS' SF account
+    users:
+      - MOHAMMED.ALHAKEEM@NEW-WORK.SE
+  -
+    role: BU_KUNUNU_PII_VIEWER # allow Kununu users to access PII data in selected schemas
+    users:
+      - ALINA.MOSOLOVA@KUNUNU.COM
+      - NIHAL.CAKIR@KUNUNU.COM
+      - TABLEAU_KUNUNU_USER
+      - ARNE.KOEHN@NEW-WORK.SE
+  -
+    role: GENERAL_WORKAREA_WRITER
+    users:
+      - PEDRO.VILACA@XING.COM
+      - KONARK.MODI@EXT.NEW-WORK.SE
+  -
+    role: ANALYTICS_TABLEAU_READER_TEST #Allow analytics&bi to read from the test schemas in tableau
+    users:
+      - JAN.ROSE@XING.COM
+      - HECTOR.RAMIREZ@XING.COM
+      - FLORIAN.WENCK@XING.COM
+      - LJEWIN.SCHEIKO@XING.COM
+      - DAVID.WOJAHN@XING.COM
+      - MARIO.CASARANO@XING.COM
+      - VIDWATH.RAJ@XING.COM
+      - MOJTABA.KARBALAEI@NEW-WORK.SE
+      - NEERAJ.KUMAR@NEW-WORK.SE
+      - TIKHON.ANTYSHEV@XING.COM
+      - GONZALO.CANDEL@XING.COM
+      - HEIKO.MUNDT@NEW-WORK.SE
+      - MARIO.IULIANO@XING.COM
+      - KAROLINA.BERNATOVA@XING.COM
+      - HODA.KERMANI@KUNUNU.COM
+      - ANDRA.PLUECKTHUN@XING.COM
+      - JULIA.STOECKLEIN@XING.COM
+      - NIHAL.CAKIR@KUNUNU.COM
+      - PAUL.NORFOLK@KUNUNU.COM
+      - JULIANE.WEIMANN@NEW-WORK.SE
+      - THANH.TRONGVO@XING.COM
+      - MARKO.DRAGICEVIC@KUNUNU.COM
+      - MOHAMMED.ALHAKEEM@NEW-WORK.SE
+      - MATIJA.MILKOVIC@NEW-WORK.SE 
+      - MEHDI.LASHGARI@NEW-WORK.SE
+      - PRIYANKA.BHARTI@NEW-WORK.SE
+      - ECE.OEZDEMIR@NEW-WORK.SE
+      - MIKHAIL.ZHADANOV@NEW-WORK.SE
+      - ERDINC.ULUTURK@NEW-WORK.SE
+      - STEFANIA.DUMA@NEW-WORK.SE
+      - KRISTIAN.KOUROS@XING.COM
+      - CARLOS.HELLER@NEW-WORK.SE
+      - SUHAS.KAMUNI@XING.COM
+      - MUKUNDA.RAMANNA@NEW-WORK.SE
+      - VAISHNAVI.KANTU@XING.COM
+      - SYEDMUSTAFA.QUADRI@NEW-WORK.SE
+  -      
+    role: CDP_SEGMENT_READER #Allow CDP Segment technical users to read from the CDP Segment schema
+    users:
+      - CDP_SEGMENT_USER
+
+  -      
+    role: EXPORT_CDP_SEGMENT_WRITER #Allow CDP Segment technical users to write in EXPORT DB to its schema
+    users:
+      - CDP_SEGMENT_USER
+      - NICOLAS.MCDONALD@NEW-WORK.SE
+
+  -      
+    role: POC_ATS_READER #Allow POC_ATS users to read from the POC_ATS schema
+    users:
+      - POC_ATS_USER
+      - MATIJA.MILKOVIC@NEW-WORK.SE
+      - ERNESTO.GIMENO@XING.COM
+      - DANIEL.HERNANDEZ@XING.COM
+  -
+    role: NWSE_PII_VIEWER
+    users:
+      - HENDRIK.SPIEGEL@NEW-WORK.SE
+      - NEW_WORK_SE_USER
+  -
+    role: WORKDAY_READER
+    users:
+      - JULIANE.WEIMANN@NEW-WORK.SE
+      - COSIMA.OTERO@NEW-WORK.SE
+  -
+    role: LANDING_ZONE_READER
+    users:
+      - RUBEN.GONZALEZ@NEW-WORK.SE
+      - MOSTAFA.SADEGHI@NEW-WORK.SE
+      - MIGUEL.LOBATO@NEW-WORK.SE
+      - BLAI.VERGE@NEW-WORK.SE
+      - DARIA.PADO@NEW-WORK.SE
+      - JOSEMIGUEL.TEBAR@NEW-WORK.SE
+      - AMIR.NAZARY@NEW-WORK.SE
+  -
+    role: SELECT_DEV_ROLE
+    users:
+      - SELECT_DEV_USER
+
+  -
+    role: THOUGHTSPOT_READER
+    users:
+      - THOUGHTSPOT_USER
+  -
+    role: ATS_ADHOC
+    users:
+      - MANUEL.GONZALEZ@XING.COM
+      - ERNESTO.GIMENO@XING.COM
+      - THOMAS.WAGNER@XING.COM
+      - DANIEL.HERNANDEZ@XING.COM
+  -
+    role: ATS_DBT
+    users:
+      - MANUEL.GONZALEZ@XING.COM
+      - ERNESTO.GIMENO@XING.COM
+      - THOMAS.WAGNER@XING.COM
+      - DANIEL.HERNANDEZ@XING.COM
+  -
+    role: ACTIVE_SOURCING_READER
+    users:
+      - ACTIVE_SOURCING_USER
+  -
+    role: SALESFORCE_DATA_CLOUD_READER
+    users:
+      - SALESFORCE_DATA_CLOUD_USER
+  -
+    role: LANDING_ZONE_WORDPRESS_RECRUITING_XING_READER
+    users:
+      - IVAN.RUBIO@XING.COM
+
+  -
+    role: SALESFORCE_ONLYFY_PII_VIEWER # allow Kununu users to access PII data in selected schemas
+    users:
+      - MARTA.RUIZ@XING.COM
+      - GERGELY.DOEMOEK@NEW-WORK.SE
+      - EFRAT.ABRAMOVITZ@NEW-WORK.SE
+      - JORDAN.MATHEW@NEW-WORK.SE
+  -
+    role: KAFKA_DP_INGESTION_PII_VIEWER # allow access PII data in selected schemas
+    users:
+      - GERGELY.DOEMOEK@NEW-WORK.SE
+      - EFRAT.ABRAMOVITZ@NEW-WORK.SE
+      - JORDAN.MATHEW@NEW-WORK.SE
+  -
+    role: CENTRAL_PROFILEBACKEND_PII_VIEWER # allow access PII data in selected schemas
+    users:
+      - SEBASTIAN.GERMESIN@XING.COM

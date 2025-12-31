@@ -1,0 +1,26 @@
+# This is a dedicated config file for staging schemas
+
+staging_schemas:
+  - name: HUMAN_RESOURCES
+    exclude_from_all_access: true
+  - name: JOBS
+  - name: USER_TRACKING
+  - name: XING_SUBSCRIPTION
+  - name: USER
+  - name: USER_INFERRED_ATTRIBUTES
+  - name: FINANCE
+    # This is temorarily commented out until Amit will clarify on permission restrictions for CoPlanner and overall finance data
+    #exclude_from_all_access: true
+  - name: CUSTOMER_RELATIONSHIP
+  - name: CORE
+  - name: MARKETING
+  - name: TECH
+  - name: APPLICANT_TRACKING_SYSTEM
+  - name: PAYMENT
+  - name: PRODUCT_USAGE
+  - name: AUDIENCE_NETWORK
+  - name: PRODUCT_MARKETING_SOLUTION
+  - name: B2C_NETWORK
+  - name: PRODUCT_HUMAN_RESOURCE_SOLUTION
+  - name: STATIC
+    exclude_from_all_access: true

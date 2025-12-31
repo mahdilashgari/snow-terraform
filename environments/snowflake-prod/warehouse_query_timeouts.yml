@@ -1,0 +1,46 @@
+# Common warehouse limits
+# The values are in seconds
+# Base principle: not more than $50 or longer than 2 hours
+# See detailed calculation here https://xingag.sharepoint.com/:x:/r/sites/BI/Shared%20Documents/05_Systems,%20Software%20%26%20Documentation/Snowflake/2023-08-30%20Snowflake%20Warehouse%20Timeouts%20Estimation.xlsx?d=wbee56f36880b4c5984717f1f73aaab19&csf=1&web=1&e=blUdwi
+# See documentation here https://new-work.atlassian.net/wiki/x/8oEQOg
+
+STANDARD:
+  XSMALL: 7200
+  SMALL: 7200
+  MEDIUM: 7200
+  LARGE: 7200
+  XLARGE: 3893
+  XXLARGE: 1946
+  XXXLARGE: 973
+  X4LARGE: 487
+  X5LARGE: 243
+  X6LARGE: 122
+SNOWPARK-OPTIMIZED:
+  MEDIUM: 7200
+  LARGE: 5190
+  XLARGE: 2595
+  XXLARGE: 1298
+  XXXLARGE: 649
+  X4LARGE: 324
+  X5LARGE: 162
+  X6LARGE: 81
+
+
+# Warehouse limits for specific use cases
+ONE-TIME:
+  XXXLARGE: 2700
+GDPR:
+  XSMALL: 7200
+  SMALL: 7200
+  MEDIUM: 7200
+  LARGE: 7200
+  XLARGE: 3600
+  XXXLARGE: 7200
+XING_EXCEPTION:
+  XSMALL: 14400
+  SMALL: 14400
+  MEDIUM: 14400
+  LARGE: 13100
+  XLARGE: 6550
+  XXLARGE: 3276
+  XXXLARGE: 1638  

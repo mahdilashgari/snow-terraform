@@ -1,0 +1,124 @@
+<mxfile host="app.diagrams.net" modified="2023-04-26T14:12:30.812Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="YTLWM8Am2ssDOi33l69s" version="21.2.1" type="device">
+  <diagram name="Page-1" id="c5ic-x2_9bN8VRLwSvcR">
+    <mxGraphModel dx="1306" dy="1884" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="YKuF3RXsL07ZYpKPtCEe-1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;align=left;horizontal=1;labelPosition=right;verticalLabelPosition=top;verticalAlign=bottom;" vertex="1" parent="1">
+          <mxGeometry x="150" y="340" width="580" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="YKuF3RXsL07ZYpKPtCEe-2" value="Schema 1" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="390" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YKuF3RXsL07ZYpKPtCEe-5" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;align=left;horizontal=1;labelPosition=right;verticalLabelPosition=top;verticalAlign=bottom;" vertex="1" parent="1">
+          <mxGeometry x="150" y="130" width="580" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="YKuF3RXsL07ZYpKPtCEe-6" value="Schema Read (SR)" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="185" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YKuF3RXsL07ZYpKPtCEe-7" value="Schema Read Write (SRW)" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="185" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YKuF3RXsL07ZYpKPtCEe-8" value="Schema Full access (sfull)" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="590" y="185" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YKuF3RXsL07ZYpKPtCEe-10" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;align=left;horizontal=1;labelPosition=right;verticalLabelPosition=top;verticalAlign=bottom;" vertex="1" parent="1">
+          <mxGeometry x="150" y="-90" width="580" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="YKuF3RXsL07ZYpKPtCEe-11" value="Functional Role Reader" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="-35" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YKuF3RXsL07ZYpKPtCEe-12" value="Functional Role Read/Writer" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="-35" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YKuF3RXsL07ZYpKPtCEe-13" value="Functional Role Full Access" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="590" y="-35" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YKuF3RXsL07ZYpKPtCEe-14" value="Data consumer" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.user;" vertex="1" parent="1">
+          <mxGeometry x="201" y="-210" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="YKuF3RXsL07ZYpKPtCEe-15" value="Developer" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.user;" vertex="1" parent="1">
+          <mxGeometry x="410" y="-210" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="YKuF3RXsL07ZYpKPtCEe-16" value="Admin" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.user;" vertex="1" parent="1">
+          <mxGeometry x="611" y="-210" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="YKuF3RXsL07ZYpKPtCEe-17" value="Schemas" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry y="395" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YKuF3RXsL07ZYpKPtCEe-18" value="Access Roles" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry y="185" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YKuF3RXsL07ZYpKPtCEe-19" value="Functional Roles" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry y="-35" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YKuF3RXsL07ZYpKPtCEe-20" value="" style="endArrow=none;dashed=1;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="30" y="110" as="sourcePoint" />
+            <mxPoint x="790" y="110" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YKuF3RXsL07ZYpKPtCEe-21" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" target="YKuF3RXsL07ZYpKPtCEe-8">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="510" y="395" as="sourcePoint" />
+            <mxPoint x="560" y="345" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YKuF3RXsL07ZYpKPtCEe-22" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="YKuF3RXsL07ZYpKPtCEe-2" target="YKuF3RXsL07ZYpKPtCEe-7">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="520" y="180" as="sourcePoint" />
+            <mxPoint x="570" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YKuF3RXsL07ZYpKPtCEe-23" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="YKuF3RXsL07ZYpKPtCEe-2" target="YKuF3RXsL07ZYpKPtCEe-6">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="520" y="180" as="sourcePoint" />
+            <mxPoint x="570" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YKuF3RXsL07ZYpKPtCEe-24" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="YKuF3RXsL07ZYpKPtCEe-7" target="YKuF3RXsL07ZYpKPtCEe-12">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="520" y="180" as="sourcePoint" />
+            <mxPoint x="570" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YKuF3RXsL07ZYpKPtCEe-25" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="YKuF3RXsL07ZYpKPtCEe-6" target="YKuF3RXsL07ZYpKPtCEe-11">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="520" y="180" as="sourcePoint" />
+            <mxPoint x="570" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YKuF3RXsL07ZYpKPtCEe-26" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="YKuF3RXsL07ZYpKPtCEe-8" target="YKuF3RXsL07ZYpKPtCEe-13">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="520" y="180" as="sourcePoint" />
+            <mxPoint x="570" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YKuF3RXsL07ZYpKPtCEe-27" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="YKuF3RXsL07ZYpKPtCEe-11" target="YKuF3RXsL07ZYpKPtCEe-14">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="520" y="180" as="sourcePoint" />
+            <mxPoint x="570" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YKuF3RXsL07ZYpKPtCEe-28" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="YKuF3RXsL07ZYpKPtCEe-12" target="YKuF3RXsL07ZYpKPtCEe-15">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="520" y="180" as="sourcePoint" />
+            <mxPoint x="570" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YKuF3RXsL07ZYpKPtCEe-29" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="YKuF3RXsL07ZYpKPtCEe-13" target="YKuF3RXsL07ZYpKPtCEe-16">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="520" y="180" as="sourcePoint" />
+            <mxPoint x="570" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YKuF3RXsL07ZYpKPtCEe-31" value="When a schema is created in a database, we also define the SR, SRW, SFULL access related to it&lt;br&gt;&lt;br&gt;We do not assign the users directly to the access roles level" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.document" vertex="1" parent="1">
+          <mxGeometry x="800" y="170" width="380" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="YKuF3RXsL07ZYpKPtCEe-32" value="When a user requests access to a certain schema, we first check his current functional roles assigned to him. Then investigate if it&#39;s possible to provide the schema access required to that role.&lt;br&gt;&lt;br&gt;In some cases, creating a new functional role might be required&lt;br&gt;&lt;br&gt;We also try to avoid giving access at an object lower than the schema level (specific tables, views, etc.) whenever possible" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.document" vertex="1" parent="1">
+          <mxGeometry x="800" y="-200" width="380" height="300" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

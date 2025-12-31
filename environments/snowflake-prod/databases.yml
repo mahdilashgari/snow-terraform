@@ -1,0 +1,204 @@
+databases:
+  -
+    name: LANDING_ZONE
+    comment: "data ingestion"
+    data_retention_time_in_days: 0
+    is_transient: true
+    create_source_system_schemas: true
+    # schemas for this database are created automatically
+    # for each source system in source_systems.yml
+    schemas:
+      - name: TEST_MUKUNDA_RAMANNA
+      - name: TEST_ECE_OEZDEMIR
+      - name: TEST_PRIYANKA_BHARTI
+      - name: TEST_MATIJA_MILKOVIC
+      - name: TEST_MOHAMMED_ALHAKEEM
+      - name: TEST_MEHDI_LASHGARI
+      - name: TEST_CARLOS_HELLER
+      - name: TEST_MIKHAIL_ZHADANOV
+      - name: TEST_ERDINC_ULUTURK
+      - name: TEST_AMIR_NAZARY
+      - name: TEST_JAN_ELMISZ
+  -
+    name: SNAPSHOTS
+    comment: "backup and historization"
+    data_retention_time_in_days: 7
+    is_transient: false
+    create_source_system_schemas: true
+    # schemas for this database are created automatically
+    # for each source system in source_systems.yml
+  -
+    name: RAW
+    comment: "data exposure to downstream consumers"
+    data_retention_time_in_days: 0
+    is_transient: true
+    create_source_system_schemas: true
+    # schemas for this database are created automatically
+    # for each source system in source_systems.yml
+  -
+    name: ANALYTICS
+    comment: "dbt data transformation and reporting resource"
+    data_retention_time_in_days: 0
+    is_transient: true
+    schemas:
+      -  name: CENTRAL
+      -  name: CENTRAL_STAGING
+      -  name: XING
+      -  name: XING_STAGING
+      -  name: ONLYFY
+      -  name: ONLYFY_STAGING
+      -  name: XMS
+      -  name: XMS_STAGING
+      -  name: FINANCE
+      -  name: CDP_SEGMENT
+      -  name: POC_ATS
+      -  name: HUMAN_RESOURCES
+      -  name: MART_SALES
+      -  name: STG_SALES
+      -  name: SALES
+      -  name: MART_FINANCE
+      -  name: REP_FINANCE
+      -  name: STG_FINANCE
+      -  name: EXPORT                  
+      -  name: TEST_MATIJA_MILKOVIC
+      -  name: TEST_JAN_ROSE  
+      -  name: TEST_HECTOR_RAMIREZ  
+      -  name: TEST_FLORIAN_WENCK  
+      -  name: TEST_BONYAD_NOURI  
+      -  name: TEST_LJEWIN_SCHEIKO
+      -  name: TEST_DAVID_WOJAHN  
+      -  name: TEST_MARIO_CASARANO  
+      -  name: TEST_VIDWATH_RAJ  
+      -  name: TEST_MOJTABA_KARBALAEI  
+      -  name: TEST_NEERAJ_KUMAR  
+      -  name: TEST_TIKHON_ANTYSHEV  
+      -  name: TEST_GONZALO_CANDEL  
+      -  name: TEST_HEIKO_MUNDT  
+      -  name: TEST_MARIO_IULIANO  
+      -  name: TEST_KAROLINA_BERNATOVA  
+      -  name: TEST_AHMED_ABOSHTAIA  
+      -  name: TEST_THOMAS_GOLDVARG  
+      -  name: TEST_HODA_KERMANI  
+      -  name: TEST_ANDRA_PLUECKTHUN  
+      -  name: TEST_JULIA_STOECKLEIN  
+      -  name: TEST_NIHAL_CAKIR  
+      -  name: TEST_PAUL_NORFOLK  
+      -  name: TEST_JULIANE_WEIMANN  
+      -  name: TEST_THANH_TRONGVO  
+      -  name: TEST_MARKO_DRAGICEVIC  
+      -  name: TEST_ABDELRAHMAN_HEWALA  
+      -  name: TEST_KRISTIAN_KOUROS
+      -  name: TEST_ALICJA_PECIAK  
+      -  name: TEST_MOHAMMED_ALHAKEEM  
+      -  name: TEST_MIKHAIL_ZHADANOV  
+      -  name: TEST_ECE_OEZDEMIR  
+      -  name: TEST_MARKUS_MAELTENI  
+      -  name: TEST_MEHDI_LASHGARI  
+      -  name: TEST_ERDINC_ULUTURK  
+      -  name: TEST_STEFANIA_DUMA  
+      -  name: TEST_PRIYANKA_BHARTI
+      -  name: TEST_ALINA_MOSOLOVA
+      -  name: TEST_CARLOS_HELLER
+      -  name: TEST_SUHAS_KAMUNI
+      -  name: TEST_DIANA_PLATARRUEDA
+      -  name: TEST_SHAY_HEMATI
+      -  name: TEST_MUKUNDA_RAMANNA
+      -  name: TEST_MANUEL_GONZALEZ
+      -  name: TEST_ERNESTO_GIMENO
+      -  name: TEST_THOMAS_WAGNER
+      -  name: TEST_DANIEL_HERNANDEZ
+      -  name: TEST_VAISHNAVI_KANTU
+      -  name: MART_ATS
+      -  name: REP_ATS
+      -  name: INT_ATS
+      -  name: JOBS
+      -  name: XING_NETWORK
+      -  name: TEST_AMIR_NAZARY
+      -  name: TEST_JAN_ELMISZ
+  -
+    name: REPORTING
+    comment: "reporting db for Tableau and analysts"
+    data_retention_time_in_days: 0
+    is_transient: true
+    schemas:
+      -  name: JOBS
+      -  name: SALES
+      -  name: XING_NETWORK
+  -
+    name: ANALYTICS_WORKAREA
+    comment: "adhoc queries and analytics"
+    data_retention_time_in_days: 0
+    is_transient: true
+    schemas:
+      -  name: CENTRAL
+      -  name: XING
+      -  name: ONLYFY
+      -  name: XMS
+      -  name: GENERAL
+  -
+    name: INTERNAL
+    comment: "internal metadata and temp data"
+    data_retention_time_in_days: 7
+    is_transient: false
+    schemas:
+      - name: PROC
+      - name: TEMP
+        is_transient: true
+        data_retention_time_in_days: 0
+      - name: GOVERNANCE
+        comment: "Draft schema GDPR metadata"
+      - name: SELECT_DEV
+        comment: "Tech schema for https://select.dev/"
+    
+  -
+    name: STAGING
+    comment: "for staging data"
+    create_staging_schemas: true
+    data_retention_time_in_days: 0
+    is_transient: true
+    # schemas for this database are created automatically
+    # for each schema in staging_schemas.yml
+
+  -
+    name: INTERMEDIATE
+    comment: "for intermediate dbt models"
+    create_intermediate_schemas: true
+    data_retention_time_in_days: 0
+    is_transient: true
+    # schemas for this database are created automatically
+    # for each schema in int_schemas.yml
+  -
+    name: ATS_REPORTING
+    comment: "for ATS dbt models"
+    create_intermediate_schemas: false
+    data_retention_time_in_days: 0
+    is_transient: true
+    schemas:
+      - name: INTERMEDIATE
+        comment: "for ATS intermediate dbt models"
+      - name: ANALYTICS
+        comment: "for ATS analytical dbt models"
+  -
+    name: DBT_DEV
+    comment: "TEST schema for dbt models"
+    create_intermediate_schemas: false
+    data_retention_time_in_days: 0
+    is_transient: true
+
+  -
+    name: BACKUP
+    comment: "database for backup tables"
+    data_retention_time_in_days: 0
+    is_transient: true
+    schemas:
+      -  name: BI_GENERAL
+
+  -
+    name: EXPORT
+    comment: "for export and reverse ETL tools"
+    data_retention_time_in_days: 0
+    is_transient: true
+    schemas:
+      -  name: __SEGMENT_REVERSE_ETL
+      -  name: ADOBE
+      -  name: ANZEIGENDATEN         

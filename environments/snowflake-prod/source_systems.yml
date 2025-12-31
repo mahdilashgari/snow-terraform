@@ -1,0 +1,180 @@
+# for each of these systems a corresponding schema
+# is created in databases landing_zone, snapshots and raw
+# as well as access roles _SR, _SRW, _SFULL.
+# The access roles are added to the _ALL_SOURCES_ roles by default.
+# to exclude a system from the _ALL_SOURCES_ roles
+# add the optional attribute "exclude_from_all_sources_access: true"
+source_systems:
+      - name: ADOBE_DATAFEEDS
+      - name: NWT_DATAFEEDS  
+      - name: AMQP
+      - name: KAFKA_AMQP
+        non_transient_landing_zone: true # tables in the schema will be non-transient (this is required for snowpipe tables from kafka sources)
+      - name: ARCHIVE_EXASOL_ANALYTICS
+      - name: ARCHIVE_EXASOL_OPENBI_CI
+      - name: ARCHIVE_EXASOL_IL_OPENBI
+      - name: ARCHIVE_EXASOL_PL_WEBTRACKING
+      - name: ARCHIVE_EXASOL_PROC
+      - name: ARCHIVE_EXASOL_DL_JOBS
+      - name: ARCHIVE_EXASOL_DL_BILLING_EXTERNAL
+      - name: ARCHIVE_EXASOL_DL_EVENTS
+      - name: ARCHIVE_EXASOL_DWH_CORE
+      - name: ARCHIVE_EXASOL_DWH_AL
+      - name: ARCHIVE_EXASOL_CONTENT_DISCOVERY
+      - name: ARCHIVE_MSSQL_NEWWORK_BC18_2022   
+        exclude_from_all_sources_access: true
+      - name: ARCHIVE_ONLYFY
+      - name: BIGQUERY_KUNUNU
+      - name: BRAZE_API_ONLYFY
+      - name: BRAZE_API_XING
+      - name: BRAZE_ONLYFY
+      - name: BRAZE_XING
+      - name: DBT_METADATA
+        exclude_from_all_sources_access: true
+      - name: DBT_API
+      - name: EASYFEEDBACK_API
+      - name: ECB_API
+      - name: FTP_ABILIFY
+      - name: FTP_ABILITA
+      - name: FTP_ANZEIGENDATEN
+      - name: FTP_BISNODE
+      - name: FTP_HEIDELPAY
+      - name: FTP_NOVOMIND
+      - name: FUNNELIO
+      - name: GEOGRAPHICAL_DIMENSIONS
+      - name: GRAPHITE_API
+      - name: HDFS_ADTECH
+      - name: KAFKA_ADTECH
+        non_transient_landing_zone: true # tables in the schema will be non-transient (this is required for snowpipe tables from kafka sources)
+      - name: HDFS_BEAR
+      - name: KAFKA_BEAR
+        non_transient_landing_zone: true # tables in the schema will be non-transient (this is required for snowpipe tables from kafka sources)
+      - name: HDFS_BINGO
+      - name: HDFS_BISNODE
+      - name: KAFKA_BISNODE
+        non_transient_landing_zone: true # tables in the schema will be non-transient (this is required for snowpipe tables from kafka sources)
+      - name: HDFS_GRAND_CENTRAL
+      - name: KAFKA_GRAND_CENTRAL
+        non_transient_landing_zone: true # tables in the schema will be non-transient (this is required for snowpipe tables from kafka sources)
+      - name: HDFS_NWT_TRACKING
+      - name: KAFKA_NWT_TRACKING
+        non_transient_landing_zone: true # tables in the schema will be non-transient (this is required for snowpipe tables from kafka sources)
+      - name: HDFS_ONTOLOGY_ENTITIZED
+      - name: HDFS_PROFILE_DATA
+      - name: HDFS_TRACKING
+      - name: KAFKA_TRACKING
+        non_transient_landing_zone: true # tables in the schema will be non-transient (this is required for snowpipe tables from kafka sources)
+      - name: HDFS_TRACY
+      - name: KAFKA_TRACY
+        non_transient_landing_zone: true # tables in the schema will be non-transient (this is required for snowpipe tables from kafka sources)
+      - name: HDFS_WDT
+      - name: KAFKA_WDT
+        non_transient_landing_zone: true # tables in the schema will be non-transient (this is required for snowpipe tables from kafka sources)
+      - name: INFORMIX_DB_CRA
+      - name: JIRA_API
+      - name: MARIADB_PRESCREEN
+      - name: MARIADB_TALENTHUB
+      - name: MARIADB_ECOM
+      - name: MSSQL_NEWWORK_BC18_2022
+        exclude_from_all_sources_access: true
+      - name: MSSQL_COPLANNER
+        exclude_from_all_sources_access: true      
+      - name: MYSQL_ACCOUNTS
+      - name: MYSQL_ADS_TRACKING
+      - name: MYSQL_COACHES
+      - name: MYSQL_COMPANIES
+      - name: MYSQL_COMPLAINTS
+      - name: MYSQL_CONTENT
+      - name: MYSQL_DATASHARING
+      - name: MYSQL_ENTITYPAGES
+      - name: MYSQL_EVENTS
+      - name: MYSQL_FEATURES
+      - name: MYSQL_FOLLOWERS
+      - name: MYSQL_GALERA_MISC
+      - name: MYSQL_GALERA_RAILSMISC
+      - name: MYSQL_IDS
+      - name: MYSQL_INQUIRY_GATEWAY
+      - name: MYSQL_JOB_APPLICATION # EXISTS IN HADOOP EXPORTS BUT NOT IN DG_REP
+      - name: MYSQL_JOB_PREFERENCES
+      - name: MYSQL_JOBS
+      - name: MYSQL_JOBS_DETAIL_BACKEND
+      - name: MYSQL_JOB_REPLY_SETTINGS_EXTRACTOR
+      - name: MYSQL_JOB_INSTANT_APPLY
+      - name: MYSQL_JOBUSER
+      - name: MYSQL_JOBS_STATISTICS
+      - name: MYSQL_KRONOS
+      - name: MYSQL_MESSAGES
+      - name: MYSQL_MICROSITE8
+      - name: MYSQL_MISC
+      - name: MYSQL_MISC8
+      - name: MYSQL_MOBILEHUB
+      - name: MYSQL_NETWORK
+      - name: MYSQL_NOTICENTER
+      - name: MYSQL_ONTOLOGY
+      - name: MYSQL_ONTOLOGY_ENTITIZED
+      - name: MYSQL_ONTOLOGY_WIKI
+      - name: MYSQL_PAYMENTS
+      - name: MYSQL_POSTINGS
+      - name: MYSQL_PREMFEATURES
+      - name: MYSQL_PREMIUM
+      - name: MYSQL_PROFILE_SETTINGS
+      - name: MYSQL_PROFILEBACKEND
+      - name: MYSQL_PROFILES
+      - name: MYSQL_PROJOBS
+      - name: MYSQL_RECO_JOBS
+      - name: MYSQL_RECRUITER_ASSISTANT
+      - name: MYSQL_SOCIAL_BACKEND
+      - name: MYSQL_TALENT_REPLY_INSIGHTS
+      - name: MYSQL_USERPROPERTIES
+      - name: MYSQL_WEBADMIN
+      - name: MYSQL_XAS
+      - name: MYSQL_XAS_AD_DELIVERY
+      - name: MYSQL_XAS_AUDIENCES
+      - name: MYSQL_XTM
+      - name: MYSQL_XWS
+      - name: MYSQL_YODA
+      - name: MYSQL_JOBSEARCHES
+      - name: ODT_TRACKING
+      - name: KAFKA_ODT_TRACKING
+        non_transient_landing_zone: true # tables in the schema will be non-transient (this is required for snowpipe tables from kafka sources)
+      - name: ONLYFY_IMPORT
+      - name: ONLYFY_JOBS
+      - name: POSTGRES_XRM
+      - name: SALESFORCE_HELLOFREELANCER
+      - name: SALESFORCE_ONLYFY
+      - name: SALESFORCE_ONLYFY_METADATA
+      - name: SALESFORCE_XMS
+      - name: SHAREPOINT
+      - name: SNOWFLAKE_METADATA
+        exclude_from_all_sources_access: true
+      - name: TABLEAU_API
+      - name: XING_IMPORT
+      - name: XMS_IMPORT
+      - name: ZENDESK_API
+      - name: MARIADB_EMPLOYER_BRANDING_PROFILE
+      - name: GSC_API
+      - name: ARCHIVE_EXASOL_BU_RED
+      - name: ARCHIVE_EXASOL_BU_PURPLE  
+      - name: ADJUST
+      - name: TAGETIK
+      - name: THE_TRADE_DESK
+      - name: HUMAN_RESOURCES
+        exclude_from_all_sources_access: true
+      - name: LDAP
+      - name: WORKDAY_API
+        exclude_from_all_sources_access: true
+      - name: KAFKA_DEXTR
+        non_transient_landing_zone: true # tables in the schema will be non-transient (this is required for snowpipe tables from kafka sources)
+      - name: KAFKA_SEMSEARCH
+        non_transient_landing_zone: true # tables in the schema will be non-transient (this is required for snowpipe tables from kafka sources)
+      - name: KAFKA_DP_INGESTION
+        non_transient_landing_zone: true # tables in the schema will be non-transient (this is required for snowpipe tables from kafka sources)
+      - name: MYSQL_XAS_TOOLBOX
+      - name: INTERNAL
+      - name: SNOWFLAKE_DP_INGESTION
+      - name: BUSINESS_CENTRAL_API
+        exclude_from_all_sources_access: true
+      - name: WORDPRESS_RECRUITING_XING
+      - name: MYSQL_PROFILELOGGEDOUT      
+      - name: XANDR_API
+      - name: MYSQL_EXTERNAL_POSTING_API

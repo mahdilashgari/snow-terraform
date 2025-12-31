@@ -1,0 +1,42 @@
+grants_user_role:
+
+### add new users here - one role per user
+  -
+    role: DBT_PIPELINE
+    users:
+      - MOHAMMED.ALHAKEEM@NEW-WORK.SE
+      - AIRFLOW_USER
+      - PRIYANKA.BHARTI@NEW-WORK.SE
+      - MEHDI.LASHGARI@NEW-WORK.SE
+  -
+    role: HUMAN_RESOURCES_READER
+    users:
+      - MOHAMMED.ALHAKEEM@NEW-WORK.SE
+      - PRIYANKA.BHARTI@NEW-WORK.SE
+  -
+    role: BU_KUNUNU_PII_VIEWER 
+    users:
+      - MOHAMMED.ALHAKEEM@NEW-WORK.SE
+      - MATIJA.MILKOVIC@NEW-WORK.SE
+  -
+    role: PUBLIC_SNOWFLAKE 
+    users:
+      - MOHAMMED.ALHAKEEM@NEW-WORK.SE
+      - MATIJA.MILKOVIC@NEW-WORK.SE
+      - NEW_WORK_SE_USER_TEST_KEY_ACCESS
+  -
+    role: NWSE_PII_VIEWER
+    users:
+      - MOHAMMED.ALHAKEEM@NEW-WORK.SE
+      - NEW_WORK_SE_USER_TEST_KEY_ACCESS
+
+  -
+    role: SALESFORCE_ONLYFY_PII_VIEWER # allow Kununu users to access PII data in selected schemas
+    users:
+      - MOHAMMED.ALHAKEEM@NEW-WORK.SE
+
+  -
+    role: KAFKA_DP_INGESTION_PII_VIEWER # allow access PII data in selected schemas
+    users:
+      - MOHAMMED.ALHAKEEM@NEW-WORK.SE
+      - PRIYANKA.BHARTI@NEW-WORK.SE

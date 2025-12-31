@@ -1,0 +1,482 @@
+roles_functional:
+  -
+    name: RAW_LOADER
+    comment: "Ingestions via on prem Airflow and AWS tools like Appflow"
+    access_roles:
+      - LANDING_ZONE_ALL_SOURCES_SFULL
+      # - LANDING_ZONE_DBT_METADATA_SFULL
+      # - LANDING_ZONE_SNOWFLAKE_METADATA_SFULL
+  -
+    name: DBT_PIPELINE
+    comment: "DBT Automation"
+    access_roles:
+      - GOVERNANCE_ENGINEER
+      - DB_CREATE
+      - INTERNAL_PROC_SR
+      # - INTERNAL_DBT_METADATA_SFULL
+      - INTERNAL_GOVERNANCE_SR
+      - LANDING_ZONE_ALL_SOURCES_SFULL
+      - SNAPSHOTS_ALL_SOURCES_SFULL
+      - RAW_ALL_SOURCES_SFULL
+      - ANALYTICS_SCHEMA_CREATE
+      - ANALYTICS_CENTRAL_SFULL
+      - ANALYTICS_CENTRAL_STAGING_SFULL
+      - ANALYTICS_XING_SFULL
+      - ANALYTICS_XING_STAGING_SFULL
+      - ANALYTICS_ONLYFY_SFULL
+      - ANALYTICS_ONLYFY_STAGING_SFULL
+      - ANALYTICS_XMS_SFULL
+      # - ANALYTICS_XMS_STAGING_SFULL
+      - ANALYTICS_FINANCE_SFULL
+      # - RAW_ARCHIVE_MSSQL_NEWWORK_BC18_2022_SFULL
+      # - SNAPSHOTS_ARCHIVE_MSSQL_NEWWORK_BC18_2022_SFULL
+      # - LANDING_ZONE_ARCHIVE_MSSQL_NEWWORK_BC18_2022_SFULL
+      # - RAW_MSSQL_NEWWORK_BC18_2022_SFULL
+      # - SNAPSHOTS_MSSQL_NEWWORK_BC18_2022_SFULL
+      # - LANDING_ZONE_MSSQL_NEWWORK_BC18_2022_SFULL
+      # - RAW_MSSQL_COPLANNER_SFULL
+      # - SNAPSHOTS_MSSQL_COPLANNER_SFULL
+      # - LANDING_ZONE_MSSQL_COPLANNER_SFULL
+      # - LANDING_ZONE_DBT_METADATA_SFULL
+      # - LANDING_ZONE_SNOWFLAKE_METADATA_SFULL
+      # - SNAPSHOTS_DBT_METADATA_SFULL
+      # - SNAPSHOTS_SNOWFLAKE_METADATA_SFULL
+      # - RAW_DBT_METADATA_SFULL
+      # - RAW_SNOWFLAKE_METADATA_SFULL
+      - BI_READER
+      - LANDING_ZONE_HUMAN_RESOURCES_SFULL
+      - RAW_HUMAN_RESOURCES_SFULL
+      - SNAPSHOTS_HUMAN_RESOURCES_SFULL
+      - STAGING_ALL_SCHEMAS_SFULL
+      - LANDING_ZONE_TEST_MUKUNDA_RAMANNA_SFULL
+      - REPORTING_JOBS_SFULL
+      - ANALYTICS_JOBS_SFULL
+      - BACKUP_CENTRAL_SFULL
+  -
+    name: BI_READER
+    comment: "Tableau"
+    access_roles:
+      - ANALYTICS_XING_SR
+      - ANALYTICS_CENTRAL_SR
+      - ANALYTICS_ONLYFY_SR
+      - ANALYTICS_XMS_SR
+      - REPORTING_JOBS_SFULL
+      # - INTERNAL_PROC_SR
+      # - INTERNAL_TEMP_SR
+      # - BU_XING_READER
+      # - BU_ONLYFY_READER
+      # - INTERNAL_DBT_METADATA_SR
+      # - BU_XMS_READER
+      # - TABLEAU_WRITER
+  
+  -
+    name: BI_READER_TEST
+    comment: "Tableau test role. To delete after 01.02.2025. This role is used for testing of Tableau issue with temp tables."
+    access_roles:
+      - ANALYTICS_XING_SR
+      - ANALYTICS_CENTRAL_SR
+      - ANALYTICS_ONLYFY_SR
+      - ANALYTICS_XMS_SR
+      # - INTERNAL_PROC_SR
+      # - INTERNAL_TEMP_SR
+
+  -
+    name: TABLEAU_WRITER
+    comment: "Tableau Writer role to overcome problems with temp table creation. If disabled, Tableau will raise temp table errors and load dashboards slower."
+    access_roles:
+      - ANALYTICS_CENTRAL_SRW
+      - ANALYTICS_XING_SRW
+      - ANALYTICS_ONLYFY_SRW
+      - ANALYTICS_XMS_SRW
+      - ANALYTICS_JOBS_SRW
+      - REPORTING_JOBS_SFULL
+
+  # -
+  #   name: BI_TABLEAU_IMPORTER
+  #   comment: "To import data from Tableau to Snowflake. Mostly used for Tableau Prep."
+  #   access_roles:
+  #     - LANDING_ZONE_TABLEAU_API_SFULL
+  # -
+  #   name: BI_READER_ACCOUNTING
+  #   comment: "Restricted Tableau role for Accounting data"
+  #   access_roles:
+  #     # - RAW_ARCHIVE_MSSQL_NEWWORK_BC18_2022_SR
+  #     - RAW_MSSQL_NEWWORK_BC18_2022_SR
+  # -  
+  #   name: BI_READER_CONTROLLING
+  #   comment: "Restricted access for Controlling"
+  #   access_roles:
+  #     - RAW_MSSQL_COPLANNER_SR
+  # -  
+  #   name: BI_READER_FINANCE
+  #   comment: "Restricted Tableau access for Controlling and Accounting"
+  #   access_roles:
+  #     - ANALYTICS_CENTRAL_SR
+  #     - ANALYTICS_FINANCE_SR
+  -
+    name: BI_ADHOC
+    comment: "View Data and write queries in Workarea"
+    access_roles:
+      # - GOVERNANCE_VIEWER
+      - RAW_ALL_SOURCES_SR
+      - ANALYTICS_CENTRAL_SR
+      - ANALYTICS_CENTRAL_STAGING_SR
+      - ANALYTICS_XING_SR
+      - ANALYTICS_XING_STAGING_SR
+      - ANALYTICS_ONLYFY_SR
+      - ANALYTICS_ONLYFY_STAGING_SR
+      - ANALYTICS_XMS_SR
+      - ANALYTICS_XMS_STAGING_SR
+      - ANALYTICS_WORKAREA_CENTRAL_SFULL
+      - ANALYTICS_WORKAREA_XING_SFULL
+      - ANALYTICS_WORKAREA_ONLYFY_SFULL
+      - ANALYTICS_WORKAREA_XMS_SFULL
+      # - INTERNAL_PROC_SR
+      - BI_READER
+  -
+    name: BI_DBT
+    comment: "BI dbt Data Modeling"
+    access_roles:
+      - GOVERNANCE_VIEWER
+      # - INTERNAL_PROC_SR
+      - RAW_ALL_SOURCES_SR
+      - ANALYTICS_SCHEMA_CREATE
+      - ANALYTICS_CENTRAL_SFULL
+      - ANALYTICS_CENTRAL_STAGING_SFULL
+      - ANALYTICS_XING_SFULL
+      - ANALYTICS_XING_STAGING_SFULL
+      - ANALYTICS_ONLYFY_SFULL
+      - ANALYTICS_ONLYFY_STAGING_SFULL
+      - ANALYTICS_XMS_SFULL
+      # - ANALYTICS_XMS_STAGING_SFULL
+      - ANALYTICS_WORKAREA_CENTRAL_SFULL
+      - ANALYTICS_WORKAREA_XING_SFULL
+      - ANALYTICS_WORKAREA_ONLYFY_SFULL
+      - ANALYTICS_WORKAREA_XMS_SFULL
+      - ANALYTICS_FINANCE_SFULL
+      - BI_READER
+      # - RAW_ARCHIVE_MSSQL_NEWWORK_BC18_2022_SR
+      # - RAW_MSSQL_NEWWORK_BC18_2022_SR
+      # - RAW_MSSQL_COPLANNER_SR
+      # - RAW_DBT_METADATA_SR
+      # - RAW_SNOWFLAKE_METADATA_SR
+      - STAGING_ALL_SCHEMAS_SFULL
+      - LANDING_ZONE_TEST_MUKUNDA_RAMANNA_SFULL
+      - REPORTING_JOBS_SFULL
+      - ANALYTICS_JOBS_SFULL
+  -
+    name: BI_FULL
+    comment: "BI dbt Data Engineering"
+    access_roles:
+      # - GOVERNANCE_ENGINEER
+      - DB_CREATE
+      # - INTERNAL_PROC_SFULL
+      # - INTERNAL_DBT_METADATA_SFULL
+      # - INTERNAL_GOVERNANCE_SFULL
+      # - INTERNAL_TEMP_SFULL
+      # - INTERNAL_SCHEMA_CREATE
+      - LANDING_ZONE_ALL_SOURCES_SR
+      - SNAPSHOTS_ALL_SOURCES_SFULL
+      - RAW_ALL_SOURCES_SFULL
+      - ANALYTICS_SCHEMA_CREATE
+      - ANALYTICS_CENTRAL_SFULL
+      - ANALYTICS_CENTRAL_STAGING_SFULL
+      - ANALYTICS_XING_SFULL
+      - ANALYTICS_XING_STAGING_SFULL
+      - ANALYTICS_ONLYFY_SFULL
+      - ANALYTICS_ONLYFY_STAGING_SFULL
+      - ANALYTICS_XMS_SFULL
+      # - ANALYTICS_XMS_STAGING_SFULL
+      - ANALYTICS_WORKAREA_CENTRAL_SFULL
+      - ANALYTICS_WORKAREA_XING_SFULL
+      - ANALYTICS_WORKAREA_ONLYFY_SFULL
+      - ANALYTICS_WORKAREA_XMS_SFULL
+      - ANALYTICS_FINANCE_SFULL
+      - BI_READER
+      # - RAW_ARCHIVE_MSSQL_NEWWORK_BC18_2022_SFULL
+      # - RAW_MSSQL_NEWWORK_BC18_2022_SFULL
+      # - RAW_MSSQL_COPLANNER_SFULL
+      # - SNAPSHOTS_ARCHIVE_MSSQL_NEWWORK_BC18_2022_SFULL
+      # - SNAPSHOTS_MSSQL_NEWWORK_BC18_2022_SFULL
+      # - SNAPSHOTS_MSSQL_COPLANNER_SFULL
+      # - SNAPSHOTS_DBT_METADATA_SFULL
+      # - SNAPSHOTS_SNOWFLAKE_METADATA_SFULL
+      # - RAW_DBT_METADATA_SFULL
+      # - RAW_SNOWFLAKE_METADATA_SFULL
+      # - LANDING_ZONE_DBT_METADATA_SFULL
+      # - LANDING_ZONE_SNOWFLAKE_METADATA_SR
+      - STAGING_ALL_SCHEMAS_SFULL
+      - LANDING_ZONE_TEST_MUKUNDA_RAMANNA_SFULL
+      - REPORTING_JOBS_SFULL
+      - ANALYTICS_JOBS_SFULL
+   
+  -
+    name: BU_XING_READER
+    comment: "Xing Tableau"
+    access_roles:
+      - ANALYTICS_ONLYFY_SR
+      - ANALYTICS_XING_SR
+      - ANALYTICS_XMS_SR
+      - ANALYTICS_CENTRAL_SR
+      - TABLEAU_WRITER
+  -
+    name: BU_XING_DBT
+    comment: "Xing dbt Engineers"
+    access_roles:
+      - GOVERNANCE_VIEWER
+      - RAW_ALL_SOURCES_SR
+      - ANALYTICS_SCHEMA_CREATE
+      - ANALYTICS_ONLYFY_SR
+      - ANALYTICS_XMS_SR
+      - ANALYTICS_XING_STAGING_SR
+      - ANALYTICS_CENTRAL_SR
+      - ANALYTICS_CENTRAL_STAGING_SR
+      - ANALYTICS_XING_SR
+      - ANALYTICS_WORKAREA_XING_SFULL
+      - ANALYTICS_ONLYFY_STAGING_SR
+      - ANALYTICS_XMS_STAGING_SR
+      - BU_XING_READER
+      - REPORTING_JOBS_SFULL
+      - ANALYTICS_JOBS_SRW
+
+  # -
+  #   name: BU_XING_ADHOC
+  #   comment: "Xing Workarea"
+  #   access_roles:
+  #     - GOVERNANCE_VIEWER
+  #     - ANALYTICS_ONLYFY_SR
+  #     - ANALYTICS_XMS_SR
+  #     - ANALYTICS_CENTRAL_SR
+  #     - ANALYTICS_XING_SR
+  #     - ANALYTICS_WORKAREA_XING_SFULL
+  #     - RAW_ALL_SOURCES_SR
+  -
+    name: BU_ONLYFY_READER
+    comment: "Onlyfy Tableau"
+    access_roles:
+      - ANALYTICS_ONLYFY_SR
+      - ANALYTICS_XING_SR
+      - ANALYTICS_XMS_SR
+      - ANALYTICS_CENTRAL_SR
+      - TABLEAU_WRITER
+  -
+    name: BU_ONLYFY_DBT
+    comment: "Onlyfy dbt Engineers"
+    access_roles:
+      - GOVERNANCE_VIEWER
+      - RAW_ALL_SOURCES_SR
+      - ANALYTICS_SCHEMA_CREATE
+      - ANALYTICS_ONLYFY_STAGING_SR
+      - ANALYTICS_CENTRAL_SR
+      - ANALYTICS_CENTRAL_STAGING_SR
+      - ANALYTICS_XING_SR
+      - ANALYTICS_XMS_SR
+      - ANALYTICS_ONLYFY_SR
+      - ANALYTICS_WORKAREA_ONLYFY_SFULL
+      - ANALYTICS_XING_STAGING_SR
+      - ANALYTICS_XMS_STAGING_SR
+      - BU_ONLYFY_READER
+      - REPORTING_JOBS_SFULL
+      - ANALYTICS_JOBS_SRW
+  -
+    name: BU_ONLYFY_ADHOC
+    comment: "Onlyfy Workarea"
+    access_roles:
+      - GOVERNANCE_VIEWER
+  #     - ANALYTICS_XING_SR
+  #     - ANALYTICS_XMS_SR
+  #     - ANALYTICS_CENTRAL_SR
+  #     - ANALYTICS_ONLYFY_SR
+  #     - ANALYTICS_WORKAREA_ONLYFY_SFULL
+  #     - RAW_ALL_SOURCES_SR
+  # -
+  #   name: LANDING_ZONE_MSSQL_COPLANNER_SFULL
+  #   comment: "XMS Tableau"
+  #   access_roles:
+  #     - ANALYTICS_ONLYFY_SR
+  #     - ANALYTICS_XING_SR
+  #     - ANALYTICS_XMS_SR
+  #     - ANALYTICS_CENTRAL_SR
+  #     - TABLEAU_WRITER
+  -
+    name: BU_XMS_READER
+    comment: "XMS Tableau"
+    access_roles:
+      - ANALYTICS_ONLYFY_SR
+      - ANALYTICS_XING_SR
+      - ANALYTICS_XMS_SR
+      - ANALYTICS_CENTRAL_SR
+      - TABLEAU_WRITER  
+  -
+    name: BU_XMS_DBT
+    comment: "XMS dbt Engineers"
+    access_roles:
+      - GOVERNANCE_VIEWER
+      - RAW_ALL_SOURCES_SR
+      - ANALYTICS_XING_SR
+      - ANALYTICS_ONLYFY_SR
+      - ANALYTICS_SCHEMA_CREATE
+      - ANALYTICS_XMS_STAGING_SR
+      - ANALYTICS_CENTRAL_SR
+      - ANALYTICS_CENTRAL_STAGING_SR
+      - ANALYTICS_XMS_SR
+      - ANALYTICS_WORKAREA_XMS_SFULL
+      - ANALYTICS_XING_STAGING_SR
+      - ANALYTICS_ONLYFY_STAGING_SR
+      - BU_XMS_READER
+      - REPORTING_JOBS_SFULL
+      - ANALYTICS_JOBS_SRW
+  # -
+  #   name: BU_XMS_ADHOC
+  #   comment: "XMS Workarea"
+  #   access_roles:
+  #     - GOVERNANCE_VIEWER
+  #     - ANALYTICS_XING_SR
+  #     - ANALYTICS_ONLYFY_SR
+  #     - ANALYTICS_CENTRAL_SR
+  #     - ANALYTICS_XMS_SR
+  #     - ANALYTICS_WORKAREA_XMS_SFULL
+  #     - RAW_ALL_SOURCES_SR
+  # -
+  #   name: BU_HONEYPOT_ADHOC
+  #   comment: "Honeypot role"
+  #   access_roles:
+  #     - GOVERNANCE_VIEWER
+  #     - ANALYTICS_XING_SR
+  #     - ANALYTICS_ONLYFY_SR
+  #     - ANALYTICS_CENTRAL_SR
+  #     - ANALYTICS_XMS_SR
+  #     - RAW_ALL_SOURCES_SR
+  # -
+  #   name: BU_FINANCE_ADHOC
+  #   comment: "Finance Viewer Role"
+  #   access_roles:
+  #     - GOVERNANCE_VIEWER
+  #     - ANALYTICS_CENTRAL_SR
+  #     - ANALYTICS_FINANCE_SR
+  -
+    name: BU_KUNUNU_ADHOC
+    comment: "Kununu Viewer Role"
+    access_roles:
+      - ANALYTICS_CENTRAL_SR
+  #     - ANALYTICS_XMS_SR
+  #     - RAW_ALL_SOURCES_SR
+  # -
+  #   name: GITHUB_PIPELINE
+  #   comment: "Github Actions functional role"
+  #   access_roles:
+  #     - GOVERNANCE_ENGINEER
+  #     - LANDING_ZONE_ALL_SOURCES_SR
+  - 
+    name: BU_ONLYFY_IMPORTER
+    comment: "Role to retrieve modelled data for scripts and to write script results back into db"
+    access_roles:
+      - LANDING_ZONE_ONLYFY_IMPORT_SFULL
+      - ANALYTICS_CENTRAL_SR
+      - ANALYTICS_ONLYFY_SR
+  - 
+    name: BU_XMS_IMPORTER
+    comment: "Role to retrieve modelled data for scripts and to write script results back into db"
+    access_roles:
+      - LANDING_ZONE_XMS_IMPORT_SFULL
+      - ANALYTICS_CENTRAL_SR
+      - ANALYTICS_XMS_SR
+  -
+    name: BU_XING_IMPORTER
+    comment: "Role to retrieve modelled data for scripts, mainly for export purposes"
+    access_roles:
+      - LANDING_ZONE_XING_IMPORT_SFULL
+      - ANALYTICS_CENTRAL_SR
+      - ANALYTICS_XING_SR
+  -  
+    name: PUBLIC_SNOWFLAKE 
+    comment: "General role upon account approval, we are granting RAW + ANALYTICS area access here, we are also granting everyone access to snowflake cortex LLM functions"
+    access_roles:
+      - ANALYTICS_XING_SR
+      - ANALYTICS_ONLYFY_SR
+      - ANALYTICS_CENTRAL_SR
+      - ANALYTICS_XMS_SR
+      - RAW_ALL_SOURCES_SR
+  # -
+  #   name: ADFS_SNOWFLAKE
+  #   comment: "General role upon account approval, we are granting PUBLIC SNOWFLAKE role to it"
+  #   access_roles:
+  #     - PUBLIC_SNOWFLAKE
+  # -
+  #   name: BU_PB_READER
+  #   comment: "Tableau Payment and Billing team, Peter Johansson"
+  #   access_roles:
+  #     - ANALYTICS_ONLYFY_SR
+  #     - ANALYTICS_XING_SR
+  #     - ANALYTICS_XMS_SR
+  #     - ANALYTICS_CENTRAL_SR
+  # -
+  #   name: BU_BSTEERING_READER
+  #   comment: "Tableau Business Steering, Henrike Engling"
+  #   access_roles:
+  #     - ANALYTICS_ONLYFY_SR
+  #     - ANALYTICS_XING_SR
+  #     - ANALYTICS_XMS_SR
+  #     - ANALYTICS_CENTRAL_SR
+  # -
+  #   name: BU_KUNUNU_READER
+  #   comment: "Onlyfy KUNUNU"
+  #   access_roles:
+  #     - ANALYTICS_ONLYFY_SR
+  #     - ANALYTICS_XING_SR
+  #     - ANALYTICS_XMS_SR
+  #     - ANALYTICS_CENTRAL_SR
+  -
+    name: BU_NWSE_ADHOC
+    comment: "central NWSE role"
+    access_roles:
+      - ANALYTICS_ONLYFY_SR
+      - ANALYTICS_XMS_SR
+      - ANALYTICS_CENTRAL_SR
+      - ANALYTICS_XING_SR
+      - RAW_ALL_SOURCES_SR
+
+  -
+    name: HUMAN_RESOURCES_READER
+    comment: "Role to read data in HUMAN_RESOURCES schema"
+    access_roles:
+      - RAW_HUMAN_RESOURCES_SR
+  -  
+    name: BI_DIS_PII_VIEWER 
+    comment: "this role allows PII data in raw layer to be viewed in DIS snowflake account"
+    access_roles:
+      - RAW_ALL_SOURCES_SR
+  -
+    name: BU_KUNUNU_PII_VIEWER
+    comment: "this role allows PII data for Kununu"
+    access_roles:
+      - ANALYTICS_ONLYFY_SR
+      - ANALYTICS_CENTRAL_SR
+  -  
+    name: GENERAL_WORKAREA_WRITER 
+    comment: "this role allows public users to write into general workarea and to use notebook functionality"
+    access_roles:
+      - ANALYTICS_WORKAREA_GENERAL_SRW
+      - ANALYTICS_XING_SR
+      - ANALYTICS_ONLYFY_SR
+      - ANALYTICS_CENTRAL_SR
+      - ANALYTICS_XMS_SR
+      - RAW_ALL_SOURCES_SR
+  -
+    name: NWSE_PII_VIEWER
+    comment: "this role allows PII data for amqp"
+    access_roles:
+      - RAW_AMQP_SR
+      - RAW_KAFKA_AMQP_SR
+
+  -
+    name: SALESFORCE_ONLYFY_PII_VIEWER
+    comment: "this role allows PII data for SALESFORCE_ONLYFY schema"
+    access_roles:
+      - RAW_SALESFORCE_ONLYFY_SR
+
+  -
+    name: KAFKA_DP_INGESTION_PII_VIEWER
+    comment: "this role allows PII data for KAFKA_DP_INGESTION schema"
+    access_roles:
+      - SNAPSHOTS_KAFKA_DP_INGESTION_SR

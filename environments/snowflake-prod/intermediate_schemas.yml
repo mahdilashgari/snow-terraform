@@ -1,0 +1,12 @@
+# This is a dedicated config file for intermediate schemas in Snowflake
+
+intermediate_schemas:
+  - name: SALES
+  - name: FINANCE
+  - name: JOBS
+  - name: HUMAN_RESOURCES
+    exclude_from_all_access: true
+  - name: TALENT_MANAGER
+  - name: XING_NETWORK
+  - name: CORE
+  - name: MARKETING

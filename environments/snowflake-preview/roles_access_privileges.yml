@@ -1,0 +1,49 @@
+# these roles are created automatically for each schema in databases.yml
+# their names are {DATABASE_NAME}_{SCHEMA_NAME}_{[SR,SRW,SFULL]}
+schema_r:
+  database: ["USAGE"]
+  schema: ["USAGE", "CREATE TEMPORARY TABLE"]
+  tables: ["SELECT"]
+  views: ["SELECT"]
+  stages: ["USAGE","READ","WRITE"]
+  file_formats: ["USAGE"]
+  streams: ["SELECT"]
+  functions: ["USAGE"]
+
+schema_rw:
+  database: ["USAGE"]
+  schema: ["USAGE", "CREATE TEMPORARY TABLE", "CREATE NOTEBOOK"]
+  tables: ["SELECT", "INSERT", "UPDATE", "DELETE", "REFERENCES"]
+  views: ["SELECT"]
+  stages: ["USAGE","READ","WRITE"]
+  file_formats: ["USAGE"]
+  streams: ["SELECT"]
+  functions: ["USAGE"]
+  procedures: ["USAGE"]
+  sequences: ["USAGE"]
+  tasks: ["MONITOR", "OPERATE"]
+
+schema_full:
+  database: ["USAGE"]
+  schema: ["MONITOR","CREATE STREAM","CREATE TAG","MODIFY","CREATE TABLE", "CREATE DYNAMIC TABLE","CREATE FILE FORMAT",
+    "CREATE FUNCTION","CREATE MATERIALIZED VIEW","CREATE ROW ACCESS POLICY",
+    "CREATE SESSION POLICY","CREATE STAGE","CREATE TASK","CREATE TEMPORARY TABLE",
+    "CREATE EXTERNAL TABLE","CREATE PROCEDURE","CREATE VIEW",
+    "USAGE","ADD SEARCH OPTIMIZATION","CREATE PIPE","CREATE SEQUENCE", "CREATE NOTEBOOK", "CREATE SNOWFLAKE.ML.FORECAST",
+    "CREATE SNOWFLAKE.ML.ANOMALY_DETECTION"]
+  # ownership privileges are now given in a separate resource in the new version 2.2.0
+  #tables: ["OWNERSHIP"]
+  #views: ["OWNERSHIP"]
+  stages: ["USAGE","READ","WRITE"]
+  file_formats: ["OWNERSHIP"]
+  streams: ["OWNERSHIP"]
+  functions: ["OWNERSHIP"]
+  procedures: ["OWNERSHIP"]
+  sequences: ["OWNERSHIP"]
+  tasks: ["OWNERSHIP"]
+
+db_create:
+  account: ["CREATE DATABASE"]
+
+schema_create:
+  database: ["CREATE SCHEMA"]

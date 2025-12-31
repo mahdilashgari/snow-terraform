@@ -1,0 +1,672 @@
+# defaults after update:
+# max_concurrency_level = 8 -> no change
+# statement_queued_timeout_in_seconds = 0 -> no change
+# warehouse_type = "STANDARD" -> no change
+#------------------------------------------------------------------------------------------------------------------------------------------
+# Important note: Please use Terraform for these two Gen2 warehouses(BI_GDPR_WH_GEN2_XXXLARGE, BI_GDPR_WH_GEN2_XLARGE) when we have Terraform v2.7 or above. For now, I will do it manually by SQL.
+#------------------------------------------------------------------------------------------------------------------------------------------
+
+warehouses:
+  -
+    name: BI_STAGE_WH
+    comment: "For Appflow etc."
+    warehouse_sizes: [XSMALL,SMALL,MEDIUM,XLARGE,XXXLARGE]
+    min_cluster_count: 1
+    max_cluster_count: 4
+    scaling_policy: "STANDARD"
+    auto_resume: true
+    initially_suspended: true
+    auto_suspend: 60
+    warehouse_grants:
+      -
+        role: DIS_DBT
+        privileges: ["USAGE"]
+      -
+        role: RAW_LOADER
+        privileges: ["USAGE"]
+      -
+        role: BI_FULL
+        privileges: ["USAGE","MONITOR","OPERATE"]
+      -
+        role: DBT_PIPELINE
+        privileges: ["USAGE","MONITOR","OPERATE"]
+      -
+        role: BI_DBT
+        privileges: ["USAGE","MONITOR","OPERATE"]
+      -
+        role: BI_TABLEAU_IMPORTER
+        privileges: ["USAGE"]
+  -
+    name: BI_TABLEAU_WH
+    comment: "For Central Tableau Reports"
+    warehouse_sizes: [XSMALL,SMALL,MEDIUM,LARGE,XLARGE,XXXLARGE]
+    auto_resume: true
+    initially_suspended: true
+    auto_suspend: 60
+    warehouse_grants:
+      -
+        role: BI_READER
+        privileges: ["USAGE"]
+      -    
+        role: BI_READER_ACCOUNTING
+        privileges: ["USAGE"]
+      -    
+        role: BI_READER_FINANCE
+        privileges: ["USAGE"]
+      -
+        role: DBT_PIPELINE
+        privileges: ["USAGE","MONITOR","OPERATE"]
+      -
+        role: BI_FULL
+        privileges: ["USAGE","MONITOR","OPERATE"]
+      -
+        role: BI_READER_TEST #  To delete after 01.02.2025. This role is used for testing of Tableau issue with temp tables.
+        privileges: ["USAGE"]
+      -
+        role: HUMAN_RESOURCES_READER
+        privileges: ["USAGE"]
+      -
+        role: ANALYTICS_TABLEAU_READER_TEST
+        privileges: ["USAGE"]                     
+  -
+    name: BI_REPORTING_POC
+    comment: "Reporting POC warehouse to test new tools like PowerBI"
+    warehouse_sizes: [XSMALL,SMALL,MEDIUM]
+    auto_resume: true
+    initially_suspended: true
+    auto_suspend: 60
+    warehouse_grants:
+      -
+        role: BI_REPORTING_POC
+        privileges: ["USAGE"]
+      -
+        role: DBT_PIPELINE
+        privileges: ["USAGE","MONITOR","OPERATE"]
+
+  -
+    name: BI_DBT_WH
+    comment: "For Engineering and Production DBT Transformations"
+    warehouse_sizes: [XSMALL,SMALL,MEDIUM,LARGE,XLARGE,XXLARGE,XXXLARGE]
+    min_cluster_count: 1
+    max_cluster_count: 4
+    scaling_policy: "STANDARD"
+    auto_resume: true
+    initially_suspended: true
+    auto_suspend: 60
+    warehouse_grants:
+      -
+        role: DBT_PIPELINE
+        privileges: ["USAGE","MONITOR","OPERATE"]
+      -
+        role: BI_FULL
+        privileges: ["USAGE","MONITOR","OPERATE"]
+      -
+        role: BI_DBT
+        privileges: ["USAGE","MONITOR","OPERATE"]
+      -
+        role: GOVERNANCE_ADMIN
+        privileges: ["USAGE"]
+      -
+        role: GOVERNANCE_ENGINEER
+        privileges: ["USAGE"]
+      -
+        role: BI_REPORTING_POC
+        privileges: ["USAGE"]  
+  
+  -
+    name: BI_SELECT_DEV_WH
+    comment: "For https://select.dev/"
+    warehouse_sizes: [XSMALL]
+    auto_resume: true
+    initially_suspended: true
+    auto_suspend: 60
+    warehouse_grants:
+      -
+        role: SELECT_DEV_ROLE
+        privileges: ["USAGE"]
+      -
+        role: DBT_PIPELINE
+        privileges: ["USAGE","MONITOR","OPERATE"]
+      -
+        role: BI_FULL
+        privileges: ["USAGE","MONITOR","OPERATE"]
+      -
+        role: BI_DBT
+        privileges: ["USAGE","MONITOR","OPERATE"]
+  
+  -
+    name: BI_DBT_WH
+    comment: "For Engineering and Production DBT Transformations"
+    warehouse_sizes: [X4LARGE,X5LARGE,X6LARGE]
+    scaling_policy: "STANDARD"
+    auto_resume: true
+    initially_suspended: true
+    auto_suspend: 60
+    warehouse_grants:
+      -
+        role: DBT_PIPELINE
+        privileges: ["USAGE","MONITOR","OPERATE"]
+      -
+        role: BI_FULL
+        privileges: ["USAGE","MONITOR","OPERATE"]
+      -
+        role: BI_DBT
+        privileges: ["USAGE","MONITOR","OPERATE"]
+  -
+    name: BI_DBT_WH_SNOWPARK
+    comment: "For Engineering and Production DBT Transformations. Only for queries that require a lot of RAM."
+    warehouse_sizes: [MEDIUM,LARGE,XLARGE,XXLARGE,XXXLARGE,X4LARGE,X5LARGE,X6LARGE]
+    warehouse_type: "SNOWPARK-OPTIMIZED"
+    auto_resume: true
+    initially_suspended: true
+    auto_suspend: 60
+    warehouse_grants:
+      -
+        role: DBT_PIPELINE
+        privileges: ["USAGE","MONITOR","OPERATE"]
+      -
+        role: BI_FULL
+        privileges: ["USAGE","MONITOR","OPERATE"]
+      -
+        role: BI_DBT
+        privileges: ["USAGE","MONITOR","OPERATE"]
+  -
+    name: BI_ADHOC_WH
+    comment: "For BI Workarea Queries"
+    warehouse_sizes: [XSMALL,SMALL,MEDIUM, LARGE]
+    auto_resume: true
+    initially_suspended: true
+    auto_suspend: 60
+    warehouse_grants:
+      -
+        role: BI_FULL
+        privileges: ["USAGE","MONITOR","OPERATE"]
+      -
+        role: BI_DBT
+        privileges: ["USAGE","MONITOR","OPERATE"]
+      -
+        role: BI_ADHOC
+        privileges: ["USAGE"]
+      -
+        role: BI_DIS_PII_VIEWER
+        privileges: ["USAGE"]
+  -
+    name: XING_TABLEAU_WH
+    #comment:
+    warehouse_sizes: [XSMALL,SMALL,MEDIUM, LARGE]
+    min_cluster_count: 1
+    max_cluster_count: 4
+    auto_resume: true
+    initially_suspended: true
+    auto_suspend: 60
+    warehouse_grants:
+      -
+        role: BU_XING_READER
+        privileges: ["USAGE"]
+      -
+        role: ANALYTICS_TABLEAU_READER_TEST
+        privileges: ["USAGE"]              
+  -
+    name: XING_DBT_WH
+    #comment:
+    warehouse_sizes: [XSMALL,SMALL,MEDIUM, LARGE, XLARGE, XXLARGE, XXXLARGE]
+    min_cluster_count: 1
+    max_cluster_count: 4
+    auto_resume: true
+    initially_suspended: true
+    auto_suspend: 60
+    warehouse_grants:
+      -
+        role: BU_XING_DBT
+        privileges: ["USAGE"]
+      -
+        role: BU_XMS_DBT
+        privileges: ["USAGE"]
+      -
+        role: DBT_PIPELINE
+        privileges: ["USAGE"]
+      -
+        role: BI_DBT
+        privileges: ["USAGE"]
+      -
+        role: BU_XING_IMPORTER
+        privileges: ["USAGE"]
+      -
+        role: BU_ONLYFY_DBT
+        privileges: ["USAGE"]
+      -
+        role: ATS_DBT
+        privileges: ["USAGE"]        
+  -
+    name: XING_DBT_LONG_TIMEOUT_WH
+    #comment:
+    warehouse_sizes: [XSMALL,SMALL,MEDIUM, LARGE, XLARGE, XXLARGE, XXXLARGE]
+    min_cluster_count: 1
+    max_cluster_count: 4
+    warehouse_timeout_config: "XING_EXCEPTION"
+    auto_resume: true
+    initially_suspended: true
+    auto_suspend: 60
+    warehouse_grants:
+      -
+        role: BU_XING_DBT
+        privileges: ["USAGE"]
+      -
+        role: BU_XMS_DBT
+        privileges: ["USAGE"]
+      -
+        role: DBT_PIPELINE
+        privileges: ["USAGE"]
+      -
+        role: BI_DBT
+        privileges: ["USAGE"]
+      -
+        role: BU_XING_IMPORTER
+        privileges: ["USAGE"]
+      -
+        role: BU_ONLYFY_DBT
+        privileges: ["USAGE"]
+  -
+    name: XING_ADHOC_WH
+    #comment:
+    warehouse_sizes: [XSMALL,SMALL,MEDIUM, LARGE]
+    auto_resume: true
+    initially_suspended: true
+    auto_suspend: 60
+    warehouse_grants:
+      - 
+        role: BU_XING_ADHOC
+        privileges: ["USAGE"]
+  -
+    name: ONLYFY_TABLEAU_WH
+    #comment:
+    warehouse_sizes: [XSMALL,SMALL,MEDIUM, LARGE]
+    min_cluster_count: 1
+    max_cluster_count: 4
+    auto_resume: true
+    initially_suspended: true
+    auto_suspend: 60
+    warehouse_grants:
+      -
+        role: BU_ONLYFY_READER
+        privileges: ["USAGE"]
+      -
+        role: BU_ONLYFY_DBT
+        privileges: ["USAGE"]
+      -
+        role: ANALYTICS_TABLEAU_READER_TEST
+        privileges: ["USAGE"]              
+  -
+    name: ONLYFY_DBT_WH
+    #comment:
+    warehouse_sizes: [XSMALL,SMALL,MEDIUM, LARGE, XLARGE]
+    min_cluster_count: 1
+    max_cluster_count: 4
+    auto_resume: true
+    initially_suspended: true
+    auto_suspend: 60
+    warehouse_grants:
+      -
+        role: BU_ONLYFY_DBT
+        privileges: ["USAGE"]
+      -
+        role: DBT_PIPELINE
+        privileges: ["USAGE"]
+      -
+        role: BU_ONLYFY_IMPORTER
+        privileges: ["USAGE"]
+      -
+        role: ATS_DBT
+        privileges: ["USAGE"]
+      -
+        role: BU_XING_DBT
+        privileges: ["USAGE"]         
+  -
+    name: ONLYFY_DBT_WH_SNOWPARK
+    comment: "Only for python queries that require a lot of RAM."
+    warehouse_sizes: [MEDIUM,LARGE,XLARGE,XXLARGE,XXXLARGE,X4LARGE]
+    warehouse_type: "SNOWPARK-OPTIMIZED"
+    auto_resume: true
+    initially_suspended: true
+    auto_suspend: 60
+    warehouse_grants:
+      -
+        role: BU_ONLYFY_DBT
+        privileges: ["USAGE"]
+      -
+        role: DBT_PIPELINE
+        privileges: ["USAGE"]
+  -
+    name: XMS_DBT_WH_SNOWPARK
+    comment: "Only for python queries that require a lot of RAM."
+    warehouse_sizes: [MEDIUM,LARGE,XLARGE,XXLARGE,XXXLARGE]
+    warehouse_type: "SNOWPARK-OPTIMIZED"
+    auto_resume: true
+    initially_suspended: true
+    auto_suspend: 60
+    warehouse_grants:
+      -
+        role: BU_XMS_DBT
+        privileges: ["USAGE"]
+      -
+        role: DBT_PIPELINE
+        privileges: ["USAGE"]
+  -
+    name: XING_DBT_WH_SNOWPARK
+    comment: "Only for python queries that require a lot of RAM."
+    warehouse_sizes: [MEDIUM,LARGE,XLARGE,XXLARGE,XXXLARGE]
+    warehouse_type: "SNOWPARK-OPTIMIZED"
+    auto_resume: true
+    initially_suspended: true
+    auto_suspend: 60
+    warehouse_grants:
+      -
+        role: BU_XING_DBT
+        privileges: ["USAGE"]
+      -
+        role: DBT_PIPELINE
+        privileges: ["USAGE"]
+  -
+    name: ONLYFY_ADHOC_WH
+    #comment:
+    warehouse_sizes: [XSMALL,SMALL,MEDIUM, LARGE]
+    auto_resume: true
+    initially_suspended: true
+    auto_suspend: 60
+    warehouse_grants:
+      - 
+        role: BU_ONLYFY_ADHOC
+        privileges: ["USAGE"]
+  -
+    name: XMS_TABLEAU_WH
+    #comment:
+    warehouse_sizes: [XSMALL,SMALL,MEDIUM, LARGE]
+    auto_resume: true
+    initially_suspended: true
+    auto_suspend: 60
+    warehouse_grants:
+      -
+        role: BU_XMS_READER
+        privileges: ["USAGE"]
+      -
+        role: ANALYTICS_TABLEAU_READER_TEST
+        privileges: ["USAGE"]              
+  -
+    name: XMS_DBT_WH
+    #comment:
+    warehouse_sizes: [XSMALL,SMALL,MEDIUM, LARGE]
+    auto_resume: true
+    initially_suspended: true
+    auto_suspend: 60
+    warehouse_grants:
+      -
+        role: BU_XMS_DBT
+        privileges: ["USAGE"]
+      -
+        role: BU_XING_DBT
+        privileges: ["USAGE"]
+      -
+        role: DBT_PIPELINE
+        privileges: ["USAGE"]
+      -
+        role: BU_XMS_IMPORTER
+        privileges: ["USAGE"]
+  -
+    name: XMS_ADHOC_WH
+    #comment:
+    warehouse_sizes: [XSMALL,SMALL,MEDIUM, LARGE]
+    auto_resume: true
+    initially_suspended: true
+    auto_suspend: 60
+    warehouse_grants:
+      - 
+        role: BU_XMS_ADHOC
+        privileges: ["USAGE"]
+  -
+    name: HONEYPOT_ADHOC_WH
+    #comment:
+    warehouse_sizes: [XSMALL,SMALL,MEDIUM, LARGE]
+    auto_resume: true
+    initially_suspended: true
+    auto_suspend: 60
+    warehouse_grants:
+      - 
+        role: BU_HONEYPOT_ADHOC
+        privileges: ["USAGE"]
+  -
+    name: KUNUNU_ADHOC_WH
+    #comment:
+    warehouse_sizes: [XSMALL,SMALL,MEDIUM, LARGE]
+    auto_resume: true
+    initially_suspended: true
+    auto_suspend: 60
+    warehouse_grants:
+      - 
+        role: BU_KUNUNU_ADHOC
+        privileges: ["USAGE"]
+  -
+    name: PUBLIC_SNOWFLAKE_ADHOC_WH
+    comment: "Warehouse for general users upon ID portal acceptance"
+    warehouse_sizes: [XSMALL,SMALL,MEDIUM]
+    auto_resume: true
+    initially_suspended: true
+    auto_suspend: 60
+    warehouse_grants:
+      - 
+        role: PUBLIC_SNOWFLAKE
+        privileges: ["USAGE"]
+      - 
+        role: GENERAL_WORKAREA_WRITER
+        privileges: ["USAGE"]
+  -
+    name: BI_WH_XXX_DANGER_ONE_TIME
+    comment: "Only for queries that require a lot of RAM and only to be used for one-time load. Revert to regular WH after use. "
+    warehouse_sizes: [XXXLARGE]
+    warehouse_timeout_config: "ONE-TIME"
+    auto_resume: true
+    initially_suspended: true
+    auto_suspend: 60
+    warehouse_grants:
+      -
+        role: DBT_PIPELINE
+        privileges: ["USAGE","MONITOR","OPERATE"]
+      -
+        role: BI_FULL   
+        privileges: ["USAGE","MONITOR","OPERATE"]
+      -
+        role: BI_DBT 
+        privileges: ["USAGE","MONITOR","OPERATE"]
+  -
+    name: BI_WH_XXX_SNOWPARK_DANGER_ONE_TIME
+    comment: "Only for queries that require a lot of RAM and only to be used for one-time load. Revert to regular WH after use. "
+    warehouse_sizes: [XXXLARGE]
+    warehouse_timeout_config: "ONE-TIME"
+    warehouse_type: "SNOWPARK-OPTIMIZED"
+    auto_resume: true
+    initially_suspended: true
+    auto_suspend: 60
+    warehouse_grants:
+      -
+        role: DBT_PIPELINE
+        privileges: ["USAGE","MONITOR","OPERATE"]
+      -
+        role: BI_FULL   
+        privileges: ["USAGE","MONITOR","OPERATE"]
+      -
+        role: BI_DBT 
+        privileges: ["USAGE","MONITOR","OPERATE"]
+  -
+    name: BI_GDPR_WH
+    comment: "Slightly extended warehouses for gdpr related workloads"
+    warehouse_sizes: [MEDIUM, LARGE, XLARGE, XXXLARGE]
+    warehouse_timeout_config: "GDPR"
+    min_cluster_count: 1
+    max_cluster_count: 2
+    auto_resume: true
+    initially_suspended: true
+    auto_suspend: 60
+    warehouse_grants:
+      -
+        role: DBT_PIPELINE
+        privileges: ["USAGE","MONITOR","OPERATE"]
+      -
+        role: BI_FULL
+        privileges: ["USAGE","MONITOR","OPERATE"]
+      -
+        role: BI_DBT
+        privileges: ["USAGE","MONITOR","OPERATE"]
+  -
+    name: PB_TABLEAU_WH
+    comment: "Used to query Data for Payment and Billing team, Peter Johansson"
+    warehouse_sizes: [XSMALL,SMALL,MEDIUM]
+    min_cluster_count: 1
+    max_cluster_count: 4
+    auto_resume: true
+    initially_suspended: true
+    auto_suspend: 60
+    warehouse_grants:
+      -
+        role: BU_PB_READER
+        privileges: ["USAGE"]           
+  -
+    name: BSTEERING_WH
+    comment: "Used to query Data for Business Steeering, Henrike Engling"
+    warehouse_sizes: [XSMALL,SMALL,MEDIUM]
+    min_cluster_count: 1
+    max_cluster_count: 4
+    auto_resume: true
+    initially_suspended: true
+    auto_suspend: 60
+    warehouse_grants:
+      -
+        role: BU_BSTEERING_READER
+        privileges: ["USAGE"]             
+  -
+    name: KUNUNU_TABLEAU_WH
+    comment: "Used to query Data for Kununu team"
+    warehouse_sizes: [XSMALL,SMALL,MEDIUM]
+    min_cluster_count: 1
+    max_cluster_count: 4
+    auto_resume: true
+    initially_suspended: true
+    auto_suspend: 60
+    warehouse_grants:
+      -
+        role: BU_KUNUNU_READER
+        privileges: ["USAGE"]
+      -
+        role: ANALYTICS_TABLEAU_READER_TEST
+        privileges: ["USAGE"]              
+  -
+    name: NWSE_ADHOC_WH
+    #comment:
+    warehouse_sizes: [XSMALL,SMALL,MEDIUM, LARGE]
+    auto_resume: true
+    initially_suspended: true
+    auto_suspend: 60
+    warehouse_grants:
+      - 
+        role: BU_NWSE_ADHOC
+        privileges: ["USAGE"]
+  -
+    name: FINANCE_ADHOC_WH
+    #comment:
+    warehouse_sizes: [XSMALL]
+    auto_resume: true
+    initially_suspended: true
+    auto_suspend: 60
+    warehouse_grants:
+      - 
+        role: BU_FINANCE_ADHOC
+        privileges: ["USAGE"]
+      -
+        role: BI_FULL
+        privileges: ["USAGE","MONITOR","OPERATE"]
+      -   
+        role: BI_DBT
+        privileges: ["USAGE","MONITOR","OPERATE"]
+  -
+    name: CDP_SEGMENT_WH
+    comment: "Used to query Data for CDP Segment"
+    warehouse_sizes: [XSMALL,SMALL,MEDIUM,LARGE]
+    auto_resume: true
+    initially_suspended: true
+    auto_suspend: 60
+    warehouse_grants:
+      - 
+        role: EXPORT_CDP_SEGMENT_WRITER
+        privileges: ["USAGE"]         
+  -
+    name: POC_ATS_WH
+    comment: "Used to query Data for POC_ATS"
+    warehouse_sizes: [XSMALL,SMALL,MEDIUM]
+    auto_resume: true
+    initially_suspended: true
+    auto_suspend: 60
+    warehouse_grants:
+      - 
+        role: POC_ATS_READER
+        privileges: ["USAGE"]
+  -
+    name: THOUGHTSPOT_WH
+    comment: "Used to query Data for Thoughtspot"
+    warehouse_sizes: [XSMALL,SMALL,MEDIUM]
+    auto_resume: true
+    initially_suspended: true
+    auto_suspend: 60
+    warehouse_grants:
+      - 
+        role: THOUGHTSPOT_READER
+        privileges: ["USAGE"]
+  -
+    name: ATS_DBT_WH
+    #comment:
+    warehouse_sizes: [XSMALL,SMALL,MEDIUM]
+    min_cluster_count: 1
+    max_cluster_count: 4
+    auto_resume: true
+    initially_suspended: true
+    auto_suspend: 60
+    warehouse_grants:
+      -
+        role: ATS_DBT
+        privileges: ["USAGE"]
+      -
+        role: DBT_PIPELINE
+        privileges: ["USAGE"]
+      -
+        role: BU_XING_DBT
+        privileges: ["USAGE"]     
+  -
+    name: ATS_ADHOC_WH
+    #comment:
+    warehouse_sizes: [XSMALL,SMALL,MEDIUM]
+    auto_resume: true
+    initially_suspended: true
+    auto_suspend: 60
+    warehouse_grants:
+      - 
+        role: ATS_ADHOC
+        privileges: ["USAGE"]
+  -
+    name: ACTIVE_SOURCING_WH
+    #comment:
+    warehouse_sizes: [XSMALL,SMALL,MEDIUM]
+    auto_resume: true
+    initially_suspended: true
+    auto_suspend: 60
+    warehouse_grants:
+      - 
+        role: ACTIVE_SOURCING_READER
+        privileges: ["USAGE"]
+  -
+    name: SALESFORCE_DATA_CLOUD_WH
+    #comment:
+    warehouse_sizes: [XSMALL,SMALL,MEDIUM]
+    auto_resume: true
+    initially_suspended: true
+    auto_suspend: 60
+    warehouse_grants:
+      - 
+        role: SALESFORCE_DATA_CLOUD_READER
+        privileges: ["USAGE"]

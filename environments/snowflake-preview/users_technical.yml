@@ -1,0 +1,104 @@
+# add new technical user here - it must have a network policy
+# make sure to reset the password in snowflake after creation
+# otherwise user login will not work
+users_technical:
+  -
+    name: TABLEAU_BI_USER
+    comment: "Used to query Data for Reporting"
+    network_policy: TABLEAU_CLOUD_POLICY
+  -
+    name: TABLEAU_BI_ACCOUNTING_USER
+    comment: "Used to query restricted Data for Reporting to accounting"
+    network_policy: TABLEAU_CLOUD_POLICY
+  -
+    name: TABLEAU_BI_FINANCE_USER
+    comment: "Used to query restricted Data for Reporting to accounting"
+    network_policy: TABLEAU_CLOUD_POLICY
+  -
+    name: TABLEAU_BI_IMPORT_USER
+    comment: "Used to import data from Tableau to Snowflake. Mostly used for Tableau Prep."
+    network_policy: TABLEAU_CLOUD_POLICY
+  -
+    name: AIRFLOW_USER
+    comment: "Used for Airflow Jobs"
+    network_policy: NWSE_POLICY
+  -
+    name: DBT_USER
+    comment: "Used for dbt cloud Prod Jobs"
+    network_policy: DBT_CLOUD_POLICY
+  -
+    name: GITHUB_USER
+    comment: "Used Github Actions that interact with Snowflake"
+    network_policy: GITHUB_RUNNER_POLICY
+  -
+    name: ONLYFY_IMPORT_USER
+    comment: "Onlyfy User for Python Script Execution"
+    network_policy: NWSE_POLICY
+  -
+    name: XMS_IMPORT_USER
+    comment: "XMS User for Python Script Execution"
+    network_policy: NWSE_POLICY
+  -
+    name: XING_IMPORT_USER
+    comment: "XING User for Python Script Execution"
+    network_policy: NWSE_POLICY
+  -
+    name: TABLEAU_XING_USER
+    comment: "Used to query Data for Reporting"
+    network_policy: TABLEAU_CLOUD_POLICY
+  -
+    name: TABLEAU_ONLYFY_USER
+    comment: "Used to query Data for Reporting"
+    network_policy: TABLEAU_CLOUD_POLICY
+  -
+    name: TABLEAU_XMS_USER
+    comment: "Used to query Data for Reporting"
+    network_policy: TABLEAU_CLOUD_POLICY
+  -
+    name: HONEYPOT_USER
+    comment: "Used to create ETL jobs by Honeypot team"
+    network_policy: NWSE_POLICY
+  -
+    name: APPFLOW_USER
+    comment: "Used to ingest data from source systems using AWS Appflow"
+    network_policy: APPFLOW_POLICY
+  -
+    name: TABLEAU_PB_USER
+    comment: "Used to query Data for Payment and Billing team, Peter Johansson"
+    network_policy: TABLEAU_CLOUD_POLICY
+  -
+    name: TABLEAU_BSTEERING_USER
+    comment: "Used to query Data for Business Steering team, Henrike Engling"
+    network_policy: TABLEAU_CLOUD_POLICY
+  -
+    name: TABLEAU_KUNUNU_USER
+    comment: "Used for Kununu users to query Data for Reporting"
+    network_policy: TABLEAU_CLOUD_POLICY
+  -
+    name: NEW_WORK_SE_USER
+    comment: "New Work SE User for NWSE security team to query Data"
+    network_policy: NWSE_POLICY
+  -
+    name: NEW_WORK_SE_USER_TEST_MOH
+    comment: "New Work SE User for NWSE security team to query Data"
+    network_policy: NWSE_POLICY
+  -
+    name: NEW_WORK_SE_USER_TEST_ML
+    comment: "New Work SE User to query Data to test pii access"
+    network_policy: NWSE_POLICY     
+  -
+    name: TABLEAU_BI_HUMAN_RESOURCES_USER
+    comment: "Used to query restricted Data for Reporting to human_resources"
+    network_policy: TABLEAU_CLOUD_POLICY
+  -
+    name: NEW_WORK_SE_USER_TEST_KEY_ACCESS #Password123@ABC
+    comment: "test access with keys and password for the same tech user"
+    network_policy: NWSE_POLICY
+    rsa_public_key: |
+      MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyVwWYw/8XD7OlKBHHbrc
+      UGBj5nRx6PprHLYrS7dK/Rmu2LPABSJewevOemPHUdsLJM64ziAtwebGBqdXXVG5
+      RYMqAneU84StX20bGBFcWyfHLP+7isRccCQG5BlQ52vxno6JsNxKw6ArJQXZIfZC
+      YFdFUVehzn2aWgnym9UgbidwZNxzd5kXvVOXm9skErxYzZbbhu4UYMBrV2rkZnED
+      0ugWShOA++gpn6xsNgmEDnwopBMwgzC11eyjamBkC73ZP+fdsS13e5OukQL6YKTt
+      2nYyyteaOeaBzONZJLZxz2HBdh3vTCLJB4CMmsVhEP8FYVoBgLcehg88Fly3mkNc
+      vwIDAQAB

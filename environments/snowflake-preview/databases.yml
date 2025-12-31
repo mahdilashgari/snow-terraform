@@ -1,0 +1,99 @@
+databases:
+  -
+    name: LANDING_ZONE
+    comment: "data ingestion"
+    data_retention_time_in_days: 0
+    is_transient: true
+    create_source_system_schemas: true
+    # schemas for this database are created automatically
+    # for each source system in source_systems.yml
+    schemas:
+      - name: TEST_MUKUNDA_RAMANNA
+
+  -
+    name: SNAPSHOTS
+    comment: "backup and historization"
+    data_retention_time_in_days: 3
+    is_transient: false
+    create_source_system_schemas: true
+    # schemas for this database are created automatically
+    # for each source system in source_systems.yml
+  -
+    name: RAW
+    comment: "data exposure to downstream consumers"
+    data_retention_time_in_days: 0
+    is_transient: true
+    create_source_system_schemas: true
+    # schemas for this database are created automatically
+    # for each source system in source_systems.yml
+  -
+    name: ANALYTICS
+    comment: "dbt data transformation and reporting resource"
+    data_retention_time_in_days: 0
+    is_transient: true
+    schemas:
+      -  name: CENTRAL
+      -  name: CENTRAL_STAGING
+      -  name: XING
+      -  name: XING_STAGING
+      -  name: ONLYFY
+      -  name: ONLYFY_STAGING
+      -  name: XMS
+      -  name: XMS_STAGING
+      -  name: FINANCE
+      -  name: JOBS
+  -
+    name: REPORTING
+    comment: "reporting db for Tableau and analysts"
+    data_retention_time_in_days: 0
+    is_transient: true
+    schemas:
+      -  name: JOBS
+  -
+    name: ANALYTICS_WORKAREA
+    comment: "adhoc queries and analytics"
+    data_retention_time_in_days: 0
+    is_transient: true
+    schemas:
+      -  name: CENTRAL
+      -  name: XING
+      -  name: ONLYFY
+      -  name: XMS
+      -  name: GENERAL
+  -
+    name: INTERNAL
+    comment: "internal metadata and temp data"
+    data_retention_time_in_days: 7
+    is_transient: false
+    schemas:
+      - name: PROC
+      - name: TEMP
+        is_transient: true
+        data_retention_time_in_days: 0
+      - name: GOVERNANCE
+        comment: "Draft schema GDPR metadata"
+  -
+    name: STAGING
+    comment: "for staging data"
+    create_staging_schemas: true
+    data_retention_time_in_days: 0
+    is_transient: true
+    # schemas for this database are created automatically
+    # for each schema in staging_schemas.yml
+
+  -
+    name: BACKUP
+    comment: “backup db for BI.“
+    data_retention_time_in_days: 0
+    is_transient: true
+    schemas:
+      -  name: CENTRAL
+      -  name: CENTRAL_STAGING
+      -  name: XING
+      -  name: XING_STAGING
+      -  name: ONLYFY
+      -  name: ONLYFY_STAGING
+      -  name: XMS
+      -  name: XMS_STAGING
+      -  name: FINANCE
+      -  name: JOBS

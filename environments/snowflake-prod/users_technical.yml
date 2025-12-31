@@ -1,0 +1,185 @@
+# add new technical user here - it must have a network policy
+# make sure to reset the password in snowflake after creation
+# otherwise user login will not work
+users_technical:
+  -
+    name: TABLEAU_BI_USER
+    comment: "Used to query Data for Reporting"
+    network_policy: TABLEAU_CLOUD_POLICY
+    rsa_public_key: |
+      MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2udZOJNjBKt9VtAd1Nyp
+      4Wa9EYSDwlEH+sxJqWTAMc2Io0RlSUUoEWbtszOTOdgOJvaKbnDK+RIlHYzlpb1R
+      TnSTDRSo9ynN41vu4XlLFdDN0rpgNfXw2HcIbSLvPoq1seFE9v3UySn1pBT5xxW/
+      esX43IL/W4tnudfNQGUIg/fRRRSCRkfMzF59plVue9k6HvlKnDJNIEikLhy4fIDX
+      0Wo8lLNy8IU1wspn6BTKZI7Gm9FypxZGhTo1SeGafDEE1hxqhOkg1AkAGUEUZbua
+      ldlZ2Cby7sQ1pvU8pavcIn2XAfUoCC/bhYPC92iuCMNX3CCWHN+8pB7D/jgmadCy
+      BwIDAQAB
+  -
+    name: TABLEAU_BI_ACCOUNTING_USER
+    comment: "Used to query restricted Data for Reporting to accounting"
+    network_policy: TABLEAU_CLOUD_POLICY
+  -
+    name: TABLEAU_BI_FINANCE_USER
+    comment: "Used to query restricted Data for Reporting to accounting"
+    network_policy: TABLEAU_CLOUD_POLICY
+  -
+    name: TABLEAU_BI_IMPORT_USER
+    comment: "Used to import data from Tableau to Snowflake. Mostly used for Tableau Prep."
+    network_policy: TABLEAU_CLOUD_POLICY
+  -
+    name: AIRFLOW_USER
+    comment: "Used for Airflow Jobs"
+    network_policy: NWSE_POLICY
+  -
+    name: DBT_USER
+    comment: "Used for dbt cloud Prod Jobs"
+    network_policy: DBT_CLOUD_POLICY
+  -
+    name: GITHUB_USER
+    comment: "Used Github Actions that interact with Snowflake"
+    network_policy: GITHUB_RUNNER_POLICY
+  -
+    name: ONLYFY_IMPORT_USER
+    comment: "Onlyfy User for Python Script Execution"
+    network_policy: NWSE_POLICY
+  -
+    name: XMS_IMPORT_USER
+    comment: "XMS User for Python Script Execution"
+    network_policy: NWSE_POLICY
+  -
+    name: XING_IMPORT_USER
+    comment: "XING User for Python Script Execution"
+    network_policy: NWSE_POLICY
+  -
+    name: TABLEAU_XING_USER
+    comment: "Used to query Data for Reporting"
+    network_policy: TABLEAU_CLOUD_POLICY
+  -
+    name: TABLEAU_ONLYFY_USER
+    comment: "Used to query Data for Reporting"
+    network_policy: TABLEAU_CLOUD_POLICY
+  -
+    name: TABLEAU_XMS_USER
+    comment: "Used to query Data for Reporting"
+    network_policy: TABLEAU_CLOUD_POLICY
+  -
+    name: HONEYPOT_USER
+    comment: "Used to create ETL jobs by Honeypot team"
+    network_policy: NWSE_POLICY
+  -
+    name: APPFLOW_USER
+    comment: "Used to ingest data from source systems using AWS Appflow"
+    network_policy: APPFLOW_POLICY
+  -
+    name: TABLEAU_PB_USER
+    comment: "Used to query Data for Payment and Billing team, Peter Johansson"
+    network_policy: TABLEAU_CLOUD_POLICY
+  -
+    name: TABLEAU_BSTEERING_USER
+    comment: "Used to query Data for Business Steering team, Henrike Engling"
+    network_policy: TABLEAU_CLOUD_POLICY
+  -
+    name: TABLEAU_KUNUNU_USER
+    comment: "Used for Kununu users to query Data for Reporting"
+    network_policy: TABLEAU_CLOUD_POLICY
+  -
+    name: NEW_WORK_SE_USER
+    comment: "New Work SE User for NWSE security team to query Data"
+    network_policy: NWSE_POLICY
+  -
+    name: NEW_WORK_SE_USER_TEST_MOH
+    comment: "New Work SE User for NWSE security team to query Data to test pii access"
+    network_policy: NWSE_POLICY
+  -
+    name: NEW_WORK_SE_USER_TEST_ML
+    comment: "New Work SE User to query Data to test pii access"
+    network_policy: NWSE_POLICY    
+  -
+    name: REPORTING_POC
+    comment: "Used for POCs and Testing"
+    network_policy: EMTPY_POLICY
+    # network_policy: REPORTING_POC_POLICY
+  -
+    name: TABLEAU_BI_HUMAN_RESOURCES_USER
+    comment: "Used to query restricted Data for Reporting to human_resources"
+    network_policy: TABLEAU_CLOUD_POLICY
+  -
+    name: CDP_SEGMENT_USER
+    comment: "Used to query restricted Data for CDP SEGMENT"
+    network_policy: CDP_SEGMENT_POLICY
+    rsa_public_key: |
+      MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuugqExuHBp14hZMRR5xm
+      a9NWLjbm5L/4JcVWYtl6V2i3SeSx1StTd9Zx5vjXPFSGcxkfOEPJPB146S0zNMtC
+      IDO/BCR23zwnmmWQQ4WWD/fXfUD2NIVKz7UlMkv47oruVgo9/CjTfusKDfPwb9+Q
+      MBXdHJ9+NbjbOYDYUudK0yi94f6N2Gr1G/Gn7ypB+v73Np0zRCYs4fiLcMqcosGE
+      IenZMadSn8mZUicSDkBYAXXJVCYVn/8RvvppL1CE9EJubscwlnWiCwglB35z9Ezu
+      KuFQeAMXXEVGJRuE7qFM2V5D7C0BvEZKuA2rFn5KSZQiK0nzA2r3bwtG45gnOgHb
+      yQIDAQAB
+  -
+    name: POC_ATS_USER
+    comment: "Used to query restricted Data for POC_ATS"
+    network_policy: POC_ATS_POLICY  
+  -
+    name: ASTRO_USER
+    comment: "Used to query Data for astronomer"
+    network_policy: ASTRONOMER_POLICY
+    rsa_public_key: |
+      MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsDkW9ficbEstusTLKATr
+      fIffzcV7d+BPK4EJLlN4w4RYiDyDim+x/jSjbIWk7KfjzHBeSc53XY1FCXHZ2JLl
+      tgww9sbl4c5CJdMvXnuWZqhqShw2YptKQ7sViYf0H6oq5g5wUCC/zt1xLhrV/yCt
+      R7W+kDsOXes1l0RUzlQ7x+UNhY3YiThpRk1/WGou3l+Lo+3mFuwqUFyd2FVEZM6/
+      MGm1uDmorKgWKi53tFl/nTNlhFiotPhccsDGli+8m3MLjkdcWw1dWyFpWrHZT2Ik
+      NFF9n+C2zxsXVxqy+UE4C+TsGATprRFsgsuboVcu/29FdXqwlIweMIKWGON6xWQ8
+      twIDAQAB
+  - 
+    name: SELECT_DEV_USER
+    comment: "Used to query Data in https://select.dev/"
+    network_policy: SELECT_DEV_POLICY
+    rsa_public_key: |
+      MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA1NzXLfrt+GF99d22Z3ZC
+      4OE4UBv3f40oMM5K3ZZldO43X5zmD1qoEzx70FC54lJ4vm5zEjVX3tIUx3PnsFHw
+      L/w8lFYJ91l96vqwzhSmxd1xTv4Gr+2t8PhLNtvMq9ixmZvPZsygvxHIRABv/u69
+      tS7peY/nlwMm5TM/C/f515AbXul+SKcXhbQxEFX3pPb0jwsnZ+OFh0qHdZ9HXRCn
+      /YZ7SX2GNvL/FdI0sXezXzRqk9xDZI3+ZMRnWP9WRVlQBs9eQ0hpsrwQtFqsBLES
+      WJLXNIfwrvT3umaXOIeH3TIP33mkDML/ZljsFN5sdlJ9CYqsjbfjZhxQFqhjDjQY
+      +wIDAQAB
+  - 
+    name: THOUGHTSPOT_USER
+    comment: "Used for thoughtspot data visualisation tool to access data" 
+    network_policy: THOUGHTSPOT_POLICY
+    rsa_public_key: |
+      MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyVwWYw/8XD7OlKBHHbrc
+      UGBj5nRx6PprHLYrS7dK/Rmu2LPABSJewevOemPHUdsLJM64ziAtwebGBqdXXVG5
+      RYMqAneU84StX20bGBFcWyfHLP+7isRccCQG5BlQ52vxno6JsNxKw6ArJQXZIfZC
+      YFdFUVehzn2aWgnym9UgbidwZNxzd5kXvVOXm9skErxYzZbbhu4UYMBrV2rkZnED
+      0ugWShOA++gpn6xsNgmEDnwopBMwgzC11eyjamBkC73ZP+fdsS13e5OukQL6YKTt
+      2nYyyteaOeaBzONZJLZxz2HBdh3vTCLJB4CMmsVhEP8FYVoBgLcehg88Fly3mkNc
+      vwIDAQAB
+  - 
+    name: ACTIVE_SOURCING_USER
+    comment: "Used for active sourcing team to fetch WDT data"
+    network_policy: ACTIVE_SOURCING_POLICY
+    rsa_public_key: |
+      MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqv+5LYqrhFIpw30cZ3wY
+      rMRePHwCHaenB164wuDAsgZTSGCWJ3XqaQXLs0iSN0z6SZCBNoKqBMZtt6tCkRNU
+      /UcDE7fcD0uvsSFv88WUsGiEAe06R2ZoVAzvKWTB7uHWkkHuAmkf/9ottGZfmKoq
+      Q5oj0Y1cI2XNted862cuG4fiUTNRU/8Rcz8BJlLlQ9AU6xoS/xXZRbLsSwpNWqyc
+      h5pP69f+5sIZ46zf3+KF63CElSoWE7nljSal+I2mtYEDppc4silCEOqRsv0PiryQ
+      sS01sTd2P9QNtncj9EjOfwCdvBxVuxZBnZhrJOgEt/f8CaALi+LJpa6VsIQ9/qwg
+      VwIDAQAB
+  - 
+    name: ANALYTICS_HACKWEEK_USER
+    comment: "Used for analytics hackweek team"
+    network_policy: NWSE_POLICY
+  - 
+    name: SALESFORCE_DATA_CLOUD_USER
+    comment: "Used for Salesforce Data Cloud to access data"
+    network_policy: SALESFORCE_DATA_CLOUD_POLICY
+    rsa_public_key: |
+      MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAse5XKHn/K5wPKreizG9h
+      Kbc/KpKJ/iQS2HT4bxIb0/X4FYEK86AlF6TjMHgcN07Ciyi7niaejNuWRS/tl3AT
+      8Fo5Je6pGUde+8pTjhlQ0gIp+F7sgVHRGUWluYb06Zk0sRwZVJVFC/cQjpf31c3+
+      3xSnH2UBxviL9gsbnTLqUMsC3KbnJlpv9dtF50dSetvxtF0jy03X6cFvem3TY0kw
+      OhWH62CcZ/XNSBIGuM7yLqHrfGLCdS3SSDQ9mcE76mBsT8YGUjaLvYa6cqSQmVlR
+      eJ3rxZTLFG1vgNjG7j4zs/hX2+h8hBjVfjr+3YfqoF1ImSBwXrT8mFzkpdJHFrv2
+      jwIDAQAB                          
