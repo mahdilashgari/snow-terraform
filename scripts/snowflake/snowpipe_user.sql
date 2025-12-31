@@ -1,0 +1,2 @@
+use role securityadmin;
+CREATE USER "SNOWPIPE_USER" RSA_PUBLIC_KEY='<ssh public key here>' DEFAULT_ROLE=PUBLIC MUST_CHANGE_PASSWORD=FALSE;
